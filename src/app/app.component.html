@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <main flex>
+    <md-toolbar color="primary">
+      <div class="md-toolbar-tools">
+        <span>{{ title }}</span>
+        <span class="fill-remaining-space"></span>
+      </div>
+    </md-toolbar>
+    <my-nav-buttons></my-nav-buttons>
+  </main>
+  <footer>
+    <md-toolbar class="md-scroll-shrink" color="default">
+      <div class="md-toolbar-tools" flex>
+        <span><h6>&copy; Microsoft :: {{ currentDate | date }}</h6></span>
+        <span class="fill-remaining-space"></span>
+      </div>
+    </md-toolbar>
+  </footer>
+</div>

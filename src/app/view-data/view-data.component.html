@@ -1,0 +1,19 @@
+<table *ngIf='services && services.length'>
+  <thead>
+    <tr>
+      <td><button md-button style="background-color:lightsteelblue;
+                                   font-weight:bold;">Name</button></td>
+      <td><button md-button style="background-color:lightsteelblue;
+                                   font-weight:bold;">ID</button></td>
+      <td><button md-button style="background-color:lightsteelblue;
+                                   font-weight:bold;">Location</button></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let service of services'>
+      <td><button md-button (click)="openDialog(service.id)">{{ service.name }}</button></td>
+      <td><button md-button (click)="openDialog(service.id)">{{ service.id }}</button></td>
+      <td><button md-button (click)="openDialog(service.id)">{{ service.location }}</button></td>
+    </tr>
+  </tbody>
+</table>

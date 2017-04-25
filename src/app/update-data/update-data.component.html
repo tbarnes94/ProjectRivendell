@@ -1,0 +1,62 @@
+<div *ngIf="service">
+  <md-card>
+    <md-card-header>
+      <md-card-title>
+        <h4>{{service.name}}</h4>
+      </md-card-title>
+      <md-card-subtitle>{{service.location}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <div>
+        <label><strong>Name:</strong></label>
+        <span>{{service.name}}</span>
+      </div>
+      <div>
+        <label><strong>ID:</strong></label>
+        <span>{{service.id}}</span>
+      </div>
+      <div>
+        <label><strong>Location:</strong></label>
+        <span>{{service.location}}</span>
+      </div>
+    </md-card-content>
+    <md-card-actions>
+      <div class="text-right">
+        <button md-button md-dialog-close *ngIf="serviceId"><i class="material-icons">close</i>CLOSE</button>
+        <button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
+      </div>
+    </md-card-actions>
+  </md-card>
+</div>
+<div *ngIf="!service">
+  <md-card>
+    <div *ngFor="let serv of services">
+      <md-card-header>
+        <md-card-title>
+          <h4>{{serv.name}}</h4>
+        </md-card-title>
+        <md-card-subtitle>{{serv.location}}</md-card-subtitle>
+      </md-card-header>
+      <md-card-content>
+        <div>
+          <label><strong>Name:</strong></label>
+          <input value="{{serv.name}}"/>
+        </div>
+        <div>
+          <label><strong>ID:</strong></label>
+          <input value="{{serv.id}}"/>
+        </div>
+        <div>
+          <label><strong>Location:</strong></label>
+          <input value="{{serv.location}}"/>
+        </div>
+      </md-card-content>
+    </div>
+    <md-card-actions>
+      <div class="text-right">
+        <button md-button md-dialog-close *ngIf="serviceId"><i class="material-icons">close</i>CLOSE</button>
+        <button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
+      </div>
+    </md-card-actions>
+  </md-card>
+</div>
