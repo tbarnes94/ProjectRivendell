@@ -16,11 +16,11 @@ export class NavButtonsComponent implements OnInit {
   navLinks: Array<object> = [
     {
       path: 'view-data',
-      label: 'VIEW DATA'
+      label: 'VIEW ENTRIES'
     },
     {
-      path: 'update-data',
-      label: 'UPDATE DATA'
+      path: 'add-entry',
+      label: 'ADD ENTRY'
     },
     {
       path: 'generate-report',
