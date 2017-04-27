@@ -9,6 +9,6 @@ import { DataService } from 'app/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'R I V E N D E L L';
+  title = 'project rivendell';
   currentDate: number = Date.now();
 }

@@ -65,36 +65,102 @@
   </thead>
   <tbody>
     <tr *ngFor='let service of services'>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.ID }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.OwnerId }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.AccountId }}</button></td>
-      <td><button md-button [class]="service.Likelihood == 'High' ? 'but-danger' : 'but-success'" (click)="openDialog(service.ID)">{{service.Likelihood}}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.Type }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.FundingSource }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.CP_Code }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.Description }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.Comments }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.ContractValue }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DecrementAmount }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DecrementMonth }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DecrementReason }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.AccountName }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.TPID }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.SE }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.SalesManager }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.ATU }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.Segment }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DMMOwner }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.OpName }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.FR }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.SalesStage }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DueDate }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.OpValue }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.ServiceOffice }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.GM }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.SPL }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.DMM }}</button></td>
-      <td><button md-button (click)="openDialog(service.ID)">{{ service.EM }}</button></td>
+
+      <!-- ID -->
+      <td><button md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
+
+      <!-- OwnerId -->
+      <td><button md-button (click)="buttonWasPressed('OwnerId');openDialog(service.ID)">{{ service.OwnerId }}</button></td>
+
+      <!-- AccountId -->
+      <td><button md-button (click)="buttonWasPressed('AccountId');openDialog(service.ID)">{{ service.AccountId | number:'1.0-0' }}</button></td>
+      
+      <!-- Likelihood -->
+      <td>
+        <!-- Red Button when Likelihood = 'High' -->
+        <button md-button *ngIf="service.Likelihood == 'High'" style="background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+
+        <!-- Green Button when Likelihood = 'Low' -->
+        <button md-button *ngIf="service.Likelihood == 'Low'" style="background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+      </td>
+
+      <!-- Type -->
+      <td><button md-button (click)="buttonWasPressed('Type');openDialog(service.ID)">{{ service.Type }}</button></td>
+
+      <!-- FundingSource -->
+      <td><button md-button (click)="buttonWasPressed('FundingSource');openDialog(service.ID)">{{ service.FundingSource }}</button></td>
+
+      <!-- CP_Code -->
+      <td><button md-button (click)="buttonWasPressed('CP_Code');openDialog(service.ID)">{{ service.CP_Code }}</button></td>
+
+      <!-- Description -->
+      <td><button md-button (click)="buttonWasPressed('Description');openDialog(service.ID)">{{ service.Description }}</button></td>
+
+      <!-- Comments -->
+      <td><button md-button (click)="buttonWasPressed('Comments');openDialog(service.ID)">{{ service.Comments }}</button></td>
+
+      <!-- ContractValue -->
+      <td><button md-button (click)="buttonWasPressed('ContractValue');openDialog(service.ID)">{{ service.ContractValue | number }}</button></td>
+
+      <!-- DecrementAmount -->
+      <td><button md-button (click)="buttonWasPressed('DecrementAmount');openDialog(service.ID)">{{ service.DecrementAmount | number }}</button></td>
+
+      <!-- DecrementMonth -->
+      <td><button md-button (click)="buttonWasPressed('DecrementMonth');openDialog(service.ID)">{{ service.DecrementMonth | number:'1.0-0' }}</button></td>
+
+      <!-- DecrementReason -->
+      <td><button md-button (click)="buttonWasPressed('DecrementReason');openDialog(service.ID)">{{ service.DecrementReason }}</button></td>
+
+      <!-- AccountName -->
+      <td><button md-button (click)="buttonWasPressed('AccountName');openDialog(service.ID)">{{ service.AccountName }}</button></td>
+
+      <!-- TPID -->
+      <td><button md-button (click)="buttonWasPressed('TPID');openDialog(service.ID)">{{ service.TPID | number:'1.0-0' }}</button></td>
+
+      <!-- SE -->
+      <td><button md-button (click)="buttonWasPressed('SE');openDialog(service.ID)">{{ service.SE }}</button></td>
+
+      <!-- SalesManager -->
+      <td><button md-button (click)="buttonWasPressed('SalesManager');openDialog(service.ID)">{{ service.SalesManager }}</button></td>
+
+      <!-- ATU -->
+      <td><button md-button (click)="buttonWasPressed('ATU');openDialog(service.ID)">{{ service.ATU }}</button></td>
+
+      <!-- Segment -->
+      <td><button md-button (click)="buttonWasPressed('Segment');openDialog(service.ID)">{{ service.Segment }}</button></td>
+
+      <!-- DMMOwner -->
+      <td><button md-button (click)="buttonWasPressed('DMMOwner');openDialog(service.ID)">{{ service.DMMOwner }}</button></td>
+
+      <!-- OpName -->
+      <td><button md-button (click)="buttonWasPressed('OpName');openDialog(service.ID)">{{ service.OpName }}</button></td>
+
+      <!-- FR -->
+      <td><button md-button (click)="buttonWasPressed('FR');openDialog(service.ID)">{{ service.FR | number }}</button></td>
+
+      <!-- SalesStage -->
+      <td><button md-button (click)="buttonWasPressed('SalesStage');openDialog(service.ID)">{{ service.SalesStage }}</button></td>
+
+      <!-- DueDate -->
+      <td><button md-button (click)="buttonWasPressed('DueDate');openDialog(service.ID)">{{ service.DueDate | date:'EEE, MMM d, y h:mm:ss a Z' }}</button></td>
+
+      <!-- OpValue -->
+      <td><button md-button (click)="buttonWasPressed('OpValue');openDialog(service.ID)">{{ service.OpValue | number }}</button></td>
+
+      <!-- ServiceOffice -->
+      <td><button md-button (click)="buttonWasPressed('ServiceOffice');openDialog(service.ID)">{{ service.ServiceOffice }}</button></td>
+
+      <!-- GM -->
+      <td><button md-button (click)="buttonWasPressed('GM');openDialog(service.ID)">{{ service.GM }}</button></td>
+
+      <!-- SPL -->
+      <td><button md-button (click)="buttonWasPressed('SPL');openDialog(service.ID)">{{ service.SPL }}</button></td>
+
+      <!-- DMM -->
+      <td><button md-button (click)="buttonWasPressed('DMM');openDialog(service.ID)">{{ service.DMM }}</button></td>
+
+      <!-- EM -->
+      <td><button md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
     </tr>
   </tbody>
 </table>
