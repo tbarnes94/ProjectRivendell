@@ -6,7 +6,7 @@ import { IService } from "app/iservice";
 @Injectable()
 export class DataService {
 
-  private _servicesUrl = 'src/api/services.json';
+  private _servicesUrl = 'src/api/get_entries.json';
 
   constructor(private _http: Http) { }
 
@@ -19,7 +19,7 @@ export class DataService {
 
   getService(id: number): Observable<IService> {
     return this.getServices()
-      .map((services: IService[]) => services.find(b => b.id === id))
+      .map((services: IService[]) => services.find(b => b.ID === id))
       .do(data => console.log( JSON.stringify(data)))
       .catch(this.handleError);
   }

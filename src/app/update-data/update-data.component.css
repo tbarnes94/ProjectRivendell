@@ -1,0 +1,29 @@
+.chip {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.chip-success {
+  background-color: #18bc9c;
+}
+.chip-danger {
+  background-color: #e74c3c;
+}
+
+.modal{
+    display: block !important;
+}
+.modal-dialog{
+      overflow-y: initial !important
+}
+.modal-body{
+  height: 475px;
+  overflow-y: auto;
+}

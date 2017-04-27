@@ -1,62 +1,134 @@
-<div *ngIf="service">
+<div class="modal-body" *ngIf="service">
   <md-card>
     <md-card-header>
       <md-card-title>
-        <h4>{{service.name}}</h4>
+        <h1>Update Entry ID#{{service.ID}}</h1>
       </md-card-title>
-      <md-card-subtitle>{{service.location}}</md-card-subtitle>
+      <md-card-subtitle>{{service.Description}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
       <div>
-        <label><strong>Name:</strong></label>
-        <span>{{service.name}}</span>
+        <label><strong>OwnerID:</strong></label>
+        <span class="entry">{{service.OwnerId}}</span>
       </div>
       <div>
-        <label><strong>ID:</strong></label>
-        <span>{{service.id}}</span>
+        <label><strong>AccountId:</strong></label>
+        <span>{{service.AccountId}}</span>
       </div>
       <div>
-        <label><strong>Location:</strong></label>
-        <span>{{service.location}}</span>
+        <label><strong>Likelihood:</strong></label>
+        <span [class]="service.Likelihood == 'High' ? 'chip chip-danger' : 'chip chip-success'">{{service.Likelihood}}</span>
+      </div>
+      <div>
+        <label><strong>Type:</strong></label>
+        <span>{{service.Type}}</span>
+      </div>
+      <div>
+        <label><strong>FundingSource:</strong></label>
+        <span>{{service.FundingSource}}</span>
+      </div>
+      <div>
+        <label><strong>CP_Code:</strong></label>
+        <span>{{service.CP_Code}}</span>
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        <span>{{service.Description}}</span>
+      </div>
+      <div>
+        <label><strong>Comments:</strong></label>
+        <span>{{service.Comments}}</span>
+      </div>
+      <div>
+        <label><strong>ContractValue:</strong></label>
+        <span>{{service.ContractValue}}</span>
+      </div>
+      <div>
+        <label><strong>DecrementAmount:</strong></label>
+        <span>{{service.DecrementAmount}}</span>
+      </div>
+      <div>
+        <label><strong>DecrementMonth:</strong></label>
+        <span>{{service.DecrementMonth}}</span>
+      </div>
+      <div>
+        <label><strong>DecrementReason:</strong></label>
+        <span>{{service.DecrementReason}}</span>
+      </div>
+      <div>
+        <label><strong>AccountName:</strong></label>
+        <span>{{service.AccountName}}</span>
+      </div>
+      <div>
+        <label><strong>TPID:</strong></label>
+        <span>{{service.TPID}}</span>
+      </div>
+      <div>
+        <label><strong>SE:</strong></label>
+        <span>{{service.SE}}</span>
+      </div>
+      <div>
+        <label><strong>SalesManager:</strong></label>
+        <span>{{service.SalesManager}}</span>
+      </div>
+      <div>
+        <label><strong>ATU:</strong></label>
+        <span>{{service.ATU}}</span>
+      </div>
+      <div>
+        <label><strong>Segment:</strong></label>
+        <span>{{service.Segment}}</span>
+      </div>
+      <div>
+        <label><strong>DMMOwner:</strong></label>
+        <span>{{service.DMMOwner}}</span>
+      </div>
+      <div>
+        <label><strong>OpName:</strong></label>
+        <span>{{service.OpName}}</span>
+      </div>
+      <div>
+        <label><strong>FR:</strong></label>
+        <span>{{service.FR}}</span>
+      </div>
+      <div>
+        <label><strong>SalesStage:</strong></label>
+        <span>{{service.SalesStage}}</span>
+      </div>
+      <div>
+        <label><strong>DueDate:</strong></label>
+        <span>{{service.DueDate}}</span>
+      </div>
+      <div>
+        <label><strong>OpValue:</strong></label>
+        <span>{{service.OpValue}}</span>
+      </div>
+      <div>
+        <label><strong>ServiceOffice:</strong></label>
+        <span>{{service.ServiceOffice}}</span>
+      </div>
+      <div>
+        <label><strong>GM:</strong></label>
+        <span>{{service.GM}}</span>
+      </div>
+      <div>
+        <label><strong>SPL:</strong></label>
+        <span>{{service.SPL}}</span>
+      </div>
+      <div>
+        <label><strong>DMM:</strong></label>
+        <span>{{service.DMM}}</span>
+      </div>
+      <div>
+        <label><strong>EM:</strong></label>
+        <span>{{service.EM}}</span>
       </div>
     </md-card-content>
     <md-card-actions>
       <div class="text-right">
-        <button md-button md-dialog-close *ngIf="serviceId"><i class="material-icons">close</i>CLOSE</button>
-        <button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
+        <button md-button md-dialog-close><i class="material-icons">close</i>CLOSE</button>
+        <!--<button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>-->
       </div>
     </md-card-actions>
   </md-card>
 </div>
-<!--<div *ngIf="!service">
-  <md-card>
-    <div *ngFor="let serv of services">
-      <md-card-header>
-        <md-card-title>
-          <h4>{{serv.name}}</h4>
-        </md-card-title>
-        <md-card-subtitle>{{serv.location}}</md-card-subtitle>
-      </md-card-header>
-      <md-card-content>
-        <div>
-          <label><strong>Name:</strong></label>
-          <input value="{{serv.name}}"/>
-        </div>
-        <div>
-          <label><strong>ID:</strong></label>
-          <input value="{{serv.id}}"/>
-        </div>
-        <div>
-          <label><strong>Location:</strong></label>
-          <input value="{{serv.location}}"/>
-        </div>
-      </md-card-content>
-    </div>
-    <md-card-actions>
-      <div class="text-right">
-        <button md-button md-dialog-close *ngIf="serviceId"><i class="material-icons">close</i>CLOSE</button>
-        <button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
-      </div>
-    </md-card-actions>
-  </md-card>
-</div>-->

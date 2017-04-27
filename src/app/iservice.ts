@@ -1,5 +1,5 @@
 export interface IService {
-    name: string,
-    id: number,
-    location: string
+    ID: number,
+    OwnerId: string,
+    AccountId: number
 }

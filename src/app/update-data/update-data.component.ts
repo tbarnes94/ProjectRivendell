@@ -13,8 +13,6 @@ import { MdSnackBar} from '@angular/material';
 export class UpdateDataComponent implements OnInit, OnDestroy {
   // Keys
   public serviceId: number;
-  public serviceName: string;
-  public serviceLocation: string;
 
   // Objects
   public service: IService;
@@ -30,14 +28,6 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getServices();
-    if (!this.serviceId) {
-      this.sub = this._route.params.subscribe(
-        params => {
-          let id = +params['id'];
-          this.getService(id);
-        });
-      return;
-    }
     this.getService(this.serviceId);
     }
 
@@ -68,7 +58,7 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   }
 
   return(): void {
-    this._router.navigate(['/']);
+    this._router.navigate(['']);
   }
 
 }
