@@ -13,6 +13,9 @@
 .chip-success {
   background-color: #18bc9c;
 }
+.chip-warning {
+  background-color: #ffbb33
+}
 .chip-danger {
   background-color: #e74c3c;
 }
