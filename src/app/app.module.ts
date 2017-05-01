@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ReactiveFormsModule } from '@angular/forms';
 
 // My Component Imports
 import { AppComponent } from './app.component';
@@ -30,8 +31,8 @@ import { AddEntryComponent } from './add-entry/add-entry.component';
     HttpModule,
     MaterialModule.forRoot(),
     BrowserAnimationsModule,
-    routing
-    
+    routing,
+    ReactiveFormsModule
   ],
   providers: [],
   entryComponents: [UpdateDataComponent],

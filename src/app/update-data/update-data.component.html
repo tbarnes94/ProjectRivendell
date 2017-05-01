@@ -1,320 +1,333 @@
-<div class="modal-body" *ngIf="service">
-  <md-card>
-    <md-card-header>
-      <md-card-title>
-        <h1>Update Entry ID#{{service.ID}}</h1>
-      </md-card-title>
-      <md-card-subtitle>{{service.Description}}</md-card-subtitle>
-    </md-card-header>
-    <md-card-content>
+<form update-entry>
+  <div class="modal-body" *ngIf="service">
+    <md-card>
+      <md-card-header>
+        <md-card-title>
+          <h1>Update Entry ID#{{service.ID}}</h1>
+        </md-card-title>
+        <md-card-subtitle>{{service.Description}}</md-card-subtitle>
+      </md-card-header>
+      <md-card-content>
 
-      <!-- OwnerId -->
-      <div *ngIf="!buttonBools[indexOfField('OwnerId')]">
-        <label><strong>OwnerID:</strong></label>
-        <span>{{service.OwnerId}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('OwnerId')]">
-        <label><strong>OwnerID:</strong></label>
-        <input type="text" value='{{service.OwnerId}}'>
-      </div>
-      
-      <!-- AccountId -->
-      <div *ngIf="!buttonBools[indexOfField('AccountId')]">
-        <label><strong>AccountId:</strong></label>
-        <span>{{service.AccountId}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('AccountId')]">
-        <label><strong>AccountId:</strong></label>
-        <input type="text" value='{{service.AccountId}}'>
-      </div>
-
-      <div *ngIf="!buttonBools[indexOfField('Likelihood')]">
-        <label><strong>Likelihood:</strong></label>
-        <span [class]="service.Likelihood == 'High' ? 'chip chip-danger' : 'chip chip-success'">{{service.Likelihood}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('Likelihood')]">
-        <div *ngIf="service.Likelihood == 'High'">
-          <label><strong>Likelihood:</strong></label>
-          <select name="Likelihood">
-            <option selected value="High">High</option>
-            <option value="Low">Low</option>
-          </select>
+        <!-- OwnerId -->
+        <div *ngIf="!buttonBools[indexOfField('OwnerId')]">
+          <label><strong>OwnerID:</strong></label>
+          <span>{{service.OwnerId}}</span>
         </div>
-        <div *ngIf="service.Likelihood == 'Low'">
-          <label><strong>Likelihood:</strong></label>
-          <select name="Likelihood">
-            <option value="High">High</option>
-            <option selected value="Low">Low</option>
-          </select>
+        <div *ngIf="buttonBools[indexOfField('OwnerId')]">
+          <label><strong>OwnerID:</strong></label>
+          <input type="text" value='{{service.OwnerId}}'>
         </div>
-      </div>
+        
+        <!-- AccountId -->
+        <div *ngIf="!buttonBools[indexOfField('AccountId')]">
+          <label><strong>AccountId:</strong></label>
+          <span>{{service.AccountId}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('AccountId')]">
+          <label><strong>AccountId:</strong></label>
+          <input type="text" value='{{service.AccountId}}'>
+        </div>
 
-      <!-- Type -->
-      <div *ngIf="!buttonBools[indexOfField('Type')]">
-        <label><strong>Type:</strong></label>
-        <span>{{service.Type}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('Type')]">
-        <label><strong>Type:</strong></label>
-        <input type="text" value='{{service.Type}}'>
-      </div>
-      
-      <!-- FundingSource -->
-      <div *ngIf="!buttonBools[indexOfField('FundingSource')]">
-        <label><strong>FundingSource:</strong></label>
-        <span>{{service.FundingSource}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('FundingSource')]">
-        <label><strong>FundingSource:</strong></label>
-        <input FundingSource="text" value='{{service.FundingSource}}'>
-      </div>
-      
-      <!-- CP_Code -->
-      <div *ngIf="!buttonBools[indexOfField('CP_Code')]">
-        <label><strong>CP_Code:</strong></label>
-        <span>{{service.CP_Code}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('CP_Code')]">
-        <label><strong>CP_Code:</strong></label>
-        <input CP_Code="text" value='{{service.CP_Code}}'>
-      </div>
-      
-      <!-- Description -->
-      <div *ngIf="!buttonBools[indexOfField('Description')]">
-        <label><strong>Description:</strong></label>
-        <span>{{service.Description}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('Description')]">
-        <label><strong>Description:</strong></label>
-        <input Description="text" value='{{service.Description}}'>
-      </div>
-      
-      <!-- Comments -->
-      <div *ngIf="!buttonBools[indexOfField('Comments')]">
-        <label><strong>Comments:</strong></label>
-        <span>{{service.Comments}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('Comments')]">
-        <label><strong>Comments:</strong></label>
-        <input Comments="text" value='{{service.Comments}}'>
-      </div>
-      
-      <!-- ContractValue -->
-      <div *ngIf="!buttonBools[indexOfField('ContractValue')]">
-        <label><strong>ContractValue:</strong></label>
-        <span>{{service.ContractValue}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('ContractValue')]">
-        <label><strong>ContractValue:</strong></label>
-        <input ContractValue="text" value='{{service.ContractValue}}'>
-      </div>
-      
-      <!-- DecrementAmount -->
-      <div *ngIf="!buttonBools[indexOfField('DecrementAmount')]">
-        <label><strong>DecrementAmount:</strong></label>
-        <span>{{service.DecrementAmount}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DecrementAmount')]">
-        <label><strong>DecrementAmount:</strong></label>
-        <input DecrementAmount="text" value='{{service.DecrementAmount}}'>
-      </div>
-      
-      <!-- DecrementMonth -->
-      <div *ngIf="!buttonBools[indexOfField('DecrementMonth')]">
-        <label><strong>DecrementMonth:</strong></label>
-        <span>{{service.DecrementMonth}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DecrementMonth')]">
-        <label><strong>DecrementMonth:</strong></label>
-        <input DecrementMonth="text" value='{{service.DecrementMonth}}'>
-      </div>
-      
-      <!-- DecrementReason -->
-      <div *ngIf="!buttonBools[indexOfField('DecrementReason')]">
-        <label><strong>DecrementReason:</strong></label>
-        <span>{{service.DecrementReason}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DecrementReason')]">
-        <label><strong>DecrementReason:</strong></label>
-        <input DecrementReason="text" value='{{service.DecrementReason}}'>
-      </div>
-      
-      <!-- AccountName -->
-      <div *ngIf="!buttonBools[indexOfField('AccountName')]">
-        <label><strong>AccountName:</strong></label>
-        <span>{{service.AccountName}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('AccountName')]">
-        <label><strong>AccountName:</strong></label>
-        <input AccountName="text" value='{{service.AccountName}}'>
-      </div>
-      
-      <!-- TPID -->
-      <div *ngIf="!buttonBools[indexOfField('TPID')]">
-        <label><strong>TPID:</strong></label>
-        <span>{{service.TPID}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('TPID')]">
-        <label><strong>TPID:</strong></label>
-        <input TPID="text" value='{{service.TPID}}'>
-      </div>
-      
-      <!-- SE -->
-      <div *ngIf="!buttonBools[indexOfField('SE')]">
-        <label><strong>SE:</strong></label>
-        <span>{{service.SE}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('SE')]">
-        <label><strong>SE:</strong></label>
-        <input SE="text" value='{{service.SE}}'>
-      </div>
-      
-      <!-- SalesManager -->
-      <div *ngIf="!buttonBools[indexOfField('SalesManager')]">
-        <label><strong>SalesManager:</strong></label>
-        <span>{{service.SalesManager}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('SalesManager')]">
-        <label><strong>SalesManager:</strong></label>
-        <input SalesManager="text" value='{{service.SalesManager}}'>
-      </div>
-      
-      <!-- ATU -->
-      <div *ngIf="!buttonBools[indexOfField('ATU')]">
-        <label><strong>ATU:</strong></label>
-        <span>{{service.ATU}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('ATU')]">
-        <label><strong>ATU:</strong></label>
-        <input ATU="text" value='{{service.ATU}}'>
-      </div>
-      
-      <!-- Segment -->
-      <div *ngIf="!buttonBools[indexOfField('Segment')]">
-        <label><strong>Segment:</strong></label>
-        <span>{{service.Segment}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('Segment')]">
-        <label><strong>Segment:</strong></label>
-        <input Segment="text" value='{{service.Segment}}'>
-      </div>
-      
-      <!-- DMMOwner -->
-      <div *ngIf="!buttonBools[indexOfField('DMMOwner')]">
-        <label><strong>DMMOwner:</strong></label>
-        <span>{{service.DMMOwner}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DMMOwner')]">
-        <label><strong>DMMOwner:</strong></label>
-        <input DMMOwner="text" value='{{service.DMMOwner}}'>
-      </div>
-      
-      <!-- OpName -->
-      <div *ngIf="!buttonBools[indexOfField('OpName')]">
-        <label><strong>OpName:</strong></label>
-        <span>{{service.OpName}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('OpName')]">
-        <label><strong>OpName:</strong></label>
-        <input OpName="text" value='{{service.OpName}}'>
-      </div>
-      
-      <!-- FR -->
-      <div *ngIf="!buttonBools[indexOfField('FR')]">
-        <label><strong>FR:</strong></label>
-        <span>{{service.FR}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('FR')]">
-        <label><strong>FR:</strong></label>
-        <input FR="text" value='{{service.FR}}'>
-      </div>
-      
-      <!-- SalesStage -->
-      <div *ngIf="!buttonBools[indexOfField('SalesStage')]">
-        <label><strong>SalesStage:</strong></label>
-        <span>{{service.SalesStage}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('SalesStage')]">
-        <label><strong>SalesStage:</strong></label>
-        <input SalesStage="text" value='{{service.SalesStage}}'>
-      </div>
-      
-      <!-- DueDate -->
-      <div *ngIf="!buttonBools[indexOfField('DueDate')]">
-        <label><strong>DueDate:</strong></label>
-        <span>{{service.DueDate}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DueDate')]">
-        <label><strong>DueDate:</strong></label>
-        <input DueDate="text" value='{{service.DueDate}}'>
-      </div>
-      
-      <!-- OpValue -->
-      <div *ngIf="!buttonBools[indexOfField('OpValue')]">
-        <label><strong>OpValue:</strong></label>
-        <span>{{service.OpValue}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('OpValue')]">
-        <label><strong>OpValue:</strong></label>
-        <input OpValue="text" value='{{service.OpValue}}'>
-      </div>
-      
-      <!-- ServiceOffice -->
-      <div *ngIf="!buttonBools[indexOfField('ServiceOffice')]">
-        <label><strong>ServiceOffice:</strong></label>
-        <span>{{service.ServiceOffice}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('ServiceOffice')]">
-        <label><strong>ServiceOffice:</strong></label>
-        <input ServiceOffice="text" value='{{service.ServiceOffice}}'>
-      </div>
-      
-      <!-- GM -->
-      <div *ngIf="!buttonBools[indexOfField('GM')]">
-        <label><strong>GM:</strong></label>
-        <span>{{service.GM}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('GM')]">
-        <label><strong>GM:</strong></label>
-        <input GM="text" value='{{service.GM}}'>
-      </div>
-      
-      <!-- SPL -->
-      <div *ngIf="!buttonBools[indexOfField('SPL')]">
-        <label><strong>SPL:</strong></label>
-        <span>{{service.SPL}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('SPL')]">
-        <label><strong>SPL:</strong></label>
-        <input SPL="text" value='{{service.SPL}}'>
-      </div>
-      
-      <!-- DMM -->
-      <div *ngIf="!buttonBools[indexOfField('DMM')]">
-        <label><strong>DMM:</strong></label>
-        <span>{{service.DMM}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('DMM')]">
-        <label><strong>DMM:</strong></label>
-        <input DMM="text" value='{{service.DMM}}'>
-      </div>
-      
-      <!-- EM -->
-      <div *ngIf="!buttonBools[indexOfField('EM')]">
-        <label><strong>EM:</strong></label>
-        <span>{{service.EM}}</span>
-      </div>
-      <div *ngIf="buttonBools[indexOfField('EM')]">
-        <label><strong>EM:</strong></label>
-        <input EM="text" value='{{service.EM}}'>
-      </div>
-      
-    </md-card-content>
-    <md-card-actions>
-      <div class="text-right">
-        <button md-button md-dialog-close><i class="material-icons">close</i>CLOSE</button>
-        <!--<button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>-->
-      </div>
-    </md-card-actions>
-  </md-card>
-</div>
+        <div *ngIf="!buttonBools[indexOfField('Likelihood')]">
+          <label><strong>Likelihood:</strong></label>
+          <span [class]="service.Likelihood == 'High' ? 'chip chip-danger' : service.Likelihood == 'Med' ? 'chip chip-warning' : 'chip chip-success'">{{service.Likelihood}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Likelihood')]">
+          <div *ngIf="service.Likelihood == 'High'">
+            <label><strong>Likelihood:</strong></label>
+            <select name="Likelihood">
+              <option selected value="High">High</option>
+              <option value="Med">Med</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div *ngIf="service.Likelihood == 'Med'">
+            <label><strong>Likelihood:</strong></label>
+            <select name="Likelihood">
+              <option value="High">High</option>
+              <option selected value="Med">Med</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div *ngIf="service.Likelihood == 'Low'">
+            <label><strong>Likelihood:</strong></label>
+            <select name="Likelihood">
+              <option value="High">High</option>
+              <option value="Med">Med</option>
+              <option selected value="Low">Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Type -->
+        <div *ngIf="!buttonBools[indexOfField('Type')]">
+          <label><strong>Type:</strong></label>
+          <span>{{service.Type}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Type')]">
+          <label><strong>Type:</strong></label>
+          <input type="text" value='{{service.Type}}'>
+        </div>
+        
+        <!-- FundingSource TODO: Make this a dropdown for 'Ext' or 'Int' -->
+        <div *ngIf="!buttonBools[indexOfField('FundingSource')]">
+          <label><strong>FundingSource:</strong></label>
+          <span>{{service.FundingSource}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('FundingSource')]">
+          <label><strong>FundingSource:</strong></label>
+          <input FundingSource="text" value='{{service.FundingSource}}'>
+        </div>
+        
+        <!-- CP_Code -->
+        <div *ngIf="!buttonBools[indexOfField('CP_Code')]">
+          <label><strong>CP_Code:</strong></label>
+          <span>{{service.CP_Code}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('CP_Code')]">
+          <label><strong>CP_Code:</strong></label>
+          <input CP_Code="text" value='{{service.CP_Code}}'>
+        </div>
+        
+        <!-- Description -->
+        <div *ngIf="!buttonBools[indexOfField('Description')]">
+          <label><strong>Description:</strong></label>
+          <span>{{service.Description}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Description')]">
+          <label><strong>Description:</strong></label>
+          <input Description="text" value='{{service.Description}}'>
+        </div>
+        
+        <!-- Comments -->
+        <div *ngIf="!buttonBools[indexOfField('Comments')]">
+          <label><strong>Comments:</strong></label>
+          <span>{{service.Comments}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Comments')]">
+          <label><strong>Comments:</strong></label>
+          <input Comments="text" value='{{service.Comments}}'>
+        </div>
+        
+        <!-- ContractValue -->
+        <div *ngIf="!buttonBools[indexOfField('ContractValue')]">
+          <label><strong>ContractValue:</strong></label>
+          <span>{{service.ContractValue}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('ContractValue')]">
+          <label><strong>ContractValue:</strong></label>
+          <input ContractValue="text" value='{{service.ContractValue}}'>
+        </div>
+        
+        <!-- DecrementAmount -->
+        <div *ngIf="!buttonBools[indexOfField('DecrementAmount')]">
+          <label><strong>DecrementAmount:</strong></label>
+          <span>{{service.DecrementAmount}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DecrementAmount')]">
+          <label><strong>DecrementAmount:</strong></label>
+          <input DecrementAmount="text" value='{{service.DecrementAmount}}'>
+        </div>
+        
+        <!-- DecrementMonth -->
+        <div *ngIf="!buttonBools[indexOfField('DecrementMonth')]">
+          <label><strong>DecrementMonth:</strong></label>
+          <span>{{service.DecrementMonth}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DecrementMonth')]">
+          <label><strong>DecrementMonth:</strong></label>
+          <input DecrementMonth="text" value='{{service.DecrementMonth}}'>
+        </div>
+        
+        <!-- DecrementReason -->
+        <div *ngIf="!buttonBools[indexOfField('DecrementReason')]">
+          <label><strong>DecrementReason:</strong></label>
+          <span>{{service.DecrementReason}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DecrementReason')]">
+          <label><strong>DecrementReason:</strong></label>
+          <input DecrementReason="text" value='{{service.DecrementReason}}'>
+        </div>
+        
+        <!-- AccountName -->
+        <div *ngIf="!buttonBools[indexOfField('AccountName')]">
+          <label><strong>AccountName:</strong></label>
+          <span>{{service.AccountName}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('AccountName')]">
+          <label><strong>AccountName:</strong></label>
+          <input AccountName="text" value='{{service.AccountName}}'>
+        </div>
+        
+        <!-- TPID -->
+        <div *ngIf="!buttonBools[indexOfField('TPID')]">
+          <label><strong>TPID:</strong></label>
+          <span>{{service.TPID}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('TPID')]">
+          <label><strong>TPID:</strong></label>
+          <input TPID="text" value='{{service.TPID}}'>
+        </div>
+        
+        <!-- SE -->
+        <div *ngIf="!buttonBools[indexOfField('SE')]">
+          <label><strong>SE:</strong></label>
+          <span>{{service.SE}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('SE')]">
+          <label><strong>SE:</strong></label>
+          <input SE="text" value='{{service.SE}}'>
+        </div>
+        
+        <!-- SalesManager -->
+        <div *ngIf="!buttonBools[indexOfField('SalesManager')]">
+          <label><strong>SalesManager:</strong></label>
+          <span>{{service.SalesManager}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('SalesManager')]">
+          <label><strong>SalesManager:</strong></label>
+          <input SalesManager="text" value='{{service.SalesManager}}'>
+        </div>
+        
+        <!-- ATU -->
+        <div *ngIf="!buttonBools[indexOfField('ATU')]">
+          <label><strong>ATU:</strong></label>
+          <span>{{service.ATU}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('ATU')]">
+          <label><strong>ATU:</strong></label>
+          <input ATU="text" value='{{service.ATU}}'>
+        </div>
+        
+        <!-- Segment -->
+        <div *ngIf="!buttonBools[indexOfField('Segment')]">
+          <label><strong>Segment:</strong></label>
+          <span>{{service.Segment}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Segment')]">
+          <label><strong>Segment:</strong></label>
+          <input Segment="text" value='{{service.Segment}}'>
+        </div>
+        
+        <!-- DMMOwner -->
+        <div *ngIf="!buttonBools[indexOfField('DMMOwner')]">
+          <label><strong>DMMOwner:</strong></label>
+          <span>{{service.DMMOwner}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DMMOwner')]">
+          <label><strong>DMMOwner:</strong></label>
+          <input DMMOwner="text" value='{{service.DMMOwner}}'>
+        </div>
+        
+        <!-- OpName -->
+        <div *ngIf="!buttonBools[indexOfField('OpName')]">
+          <label><strong>OpName:</strong></label>
+          <span>{{service.OpName}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('OpName')]">
+          <label><strong>OpName:</strong></label>
+          <input OpName="text" value='{{service.OpName}}'>
+        </div>
+        
+        <!-- FR -->
+        <div *ngIf="!buttonBools[indexOfField('FR')]">
+          <label><strong>FR:</strong></label>
+          <span>{{service.FR}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('FR')]">
+          <label><strong>FR:</strong></label>
+          <input FR="text" value='{{service.FR}}'>
+        </div>
+        
+        <!-- SalesStage -->
+        <div *ngIf="!buttonBools[indexOfField('SalesStage')]">
+          <label><strong>SalesStage:</strong></label>
+          <span>{{service.SalesStage}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('SalesStage')]">
+          <label><strong>SalesStage:</strong></label>
+          <input SalesStage="text" value='{{service.SalesStage}}'>
+        </div>
+        
+        <!-- DueDate -->
+        <div *ngIf="!buttonBools[indexOfField('DueDate')]">
+          <label><strong>DueDate:</strong></label>
+          <span>{{service.DueDate}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DueDate')]">
+          <label><strong>DueDate:</strong></label>
+          <input DueDate="text" value='{{service.DueDate}}'>
+        </div>
+        
+        <!-- OpValue -->
+        <div *ngIf="!buttonBools[indexOfField('OpValue')]">
+          <label><strong>OpValue:</strong></label>
+          <span>{{service.OpValue}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('OpValue')]">
+          <label><strong>OpValue:</strong></label>
+          <input OpValue="text" value='{{service.OpValue}}'>
+        </div>
+        
+        <!-- ServiceOffice -->
+        <div *ngIf="!buttonBools[indexOfField('ServiceOffice')]">
+          <label><strong>ServiceOffice:</strong></label>
+          <span>{{service.ServiceOffice}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('ServiceOffice')]">
+          <label><strong>ServiceOffice:</strong></label>
+          <input ServiceOffice="text" value='{{service.ServiceOffice}}'>
+        </div>
+        
+        <!-- GM -->
+        <div *ngIf="!buttonBools[indexOfField('GM')]">
+          <label><strong>GM:</strong></label>
+          <span>{{service.GM}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('GM')]">
+          <label><strong>GM:</strong></label>
+          <input GM="text" value='{{service.GM}}'>
+        </div>
+        
+        <!-- SPL -->
+        <div *ngIf="!buttonBools[indexOfField('SPL')]">
+          <label><strong>SPL:</strong></label>
+          <span>{{service.SPL}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('SPL')]">
+          <label><strong>SPL:</strong></label>
+          <input SPL="text" value='{{service.SPL}}'>
+        </div>
+        
+        <!-- DMM -->
+        <div *ngIf="!buttonBools[indexOfField('DMM')]">
+          <label><strong>DMM:</strong></label>
+          <span>{{service.DMM}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('DMM')]">
+          <label><strong>DMM:</strong></label>
+          <input DMM="text" value='{{service.DMM}}'>
+        </div>
+        
+        <!-- EM -->
+        <div *ngIf="!buttonBools[indexOfField('EM')]">
+          <label><strong>EM:</strong></label>
+          <span>{{service.EM}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('EM')]">
+          <label><strong>EM:</strong></label>
+          <input EM="text" value='{{service.EM}}'>
+        </div>
+        
+      </md-card-content>
+      <md-card-actions>
+        <div class="text-right">
+          <button md-button md-dialog-check *ngIf='true'><i class="material-icons">check</i>SUBMIT</button>
+          <button md-button md-dialog-close><i class="material-icons">close</i>CLOSE</button>
+          <!--<button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>-->
+        </div>
+      </md-card-actions>
+    </md-card>
+  </div>
+</form>

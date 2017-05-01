@@ -80,6 +80,9 @@
         <!-- Red Button when Likelihood = 'High' -->
         <button md-button *ngIf="service.Likelihood == 'High'" style="background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
 
+        <!-- Yellow Button when Likelihood = 'Med' -->
+        <button md-button *ngIf="service.Likelihood == 'Med'" style="background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+
         <!-- Green Button when Likelihood = 'Low' -->
         <button md-button *ngIf="service.Likelihood == 'Low'" style="background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
       </td>
