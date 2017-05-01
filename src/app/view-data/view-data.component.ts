@@ -134,6 +134,9 @@ export class ViewDataComponent implements OnInit {
       case 'EM':
         this.buttonIndex = 29;
         break;
+      case 'Forecasts':
+        this.buttonIndex = 30;
+        break;
       default:
         this.buttonIndex = 0; // Update Entry form should not be editable
     }

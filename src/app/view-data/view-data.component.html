@@ -61,6 +61,8 @@
                                    font-weight:bold;">DMM</button></td>
       <td><button md-button style="background-color:lightsteelblue;
                                    font-weight:bold;">EM</button></td>
+      <td><button md-button style="background-color:lightsteelblue;
+                                   font-weight:bold;">Forecasts</button></td>
     </tr>
   </thead>
   <tbody>
@@ -164,6 +166,9 @@
 
       <!-- EM -->
       <td><button md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
+
+      <!--Forecasts -->
+      <td><button md-button (click)="buttonWasPressed('Forecasts');openDialog(service.ID)">{{ service.Forecasts }}</button></td>
     </tr>
   </tbody>
 </table>

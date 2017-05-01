@@ -319,6 +319,16 @@
           <label><strong>EM:</strong></label>
           <input EM="text" value='{{service.EM}}'>
         </div>
+
+        <!-- Forecasts -->
+        <div *ngIf="!buttonBools[indexOfField('Forecasts')]">
+          <label><strong>Forecasts:</strong></label>
+          <span>{{service.Forecasts}}</span>
+        </div>
+        <div *ngIf="buttonBools[indexOfField('Forecasts')]">
+          <label><strong>Forecasts:</strong></label>
+          <input Forecasts="text" value='{{service.Forecasts.Value}}'>
+        </div>
         
       </md-card-content>
       <md-card-actions>
