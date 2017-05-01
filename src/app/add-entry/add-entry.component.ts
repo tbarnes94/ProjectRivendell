@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-entry.component.css']
 })
 export class AddEntryComponent implements OnInit {
+  tiles = [
+    {text: 'One', cols: 2, rows: 2, color: 'lightblue'},
+    {text: 'Two', cols: 2, rows: 2, color: 'lightgreen'}
+  ];
 
   constructor() { }
 
