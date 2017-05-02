@@ -3,6 +3,7 @@ import { DataService } from 'app/data.service';
 import { MdSnackBar, MdDialog } from '@angular/material';
 import { IService } from 'app/iservice';
 import { UpdateDataComponent } from 'app/update-data/update-data.component';
+import { IForecast } from "app/iforecast";
 
 @Component({
   selector: 'view-data',
@@ -39,7 +40,6 @@ export class ViewDataComponent implements OnInit {
   updateMessage(message: string): void {
       this.infoMessage = message;
   }
-
 
   buttonWasPressed(buttonName: string): void {
     console.log(buttonName == "OwnerId");

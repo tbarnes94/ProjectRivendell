@@ -168,7 +168,11 @@
       <td><button md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
 
       <!--Forecasts -->
-      <td><button md-button (click)="buttonWasPressed('Forecasts');openDialog(service.ID)">{{ service.Forecasts }}</button></td>
+      <td>
+        <span *ngFor="let forecast of service['Forecasts']">
+          <button md-button style="background-color:black;" (click)="buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>

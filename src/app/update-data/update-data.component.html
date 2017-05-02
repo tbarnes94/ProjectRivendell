@@ -323,11 +323,29 @@
         <!-- Forecasts -->
         <div *ngIf="!buttonBools[indexOfField('Forecasts')]">
           <label><strong>Forecasts:</strong></label>
-          <span>{{service.Forecasts}}</span>
+          <span *ngFor="let forecast of service.Forecasts">{{ forecast.ID | number }} | {{ forecast.Month | month }} | {{ forecast.Value | number }}<br></span>
         </div>
         <div *ngIf="buttonBools[indexOfField('Forecasts')]">
           <label><strong>Forecasts:</strong></label>
-          <input Forecasts="text" value='{{service.Forecasts.Value}}'>
+          <table>
+            <thead>
+              <tr>
+                <td style="font-weight:bold;">ID</td>
+                <td style="font-weight:bold;">Month</td>
+                <td style="font-weight:bold;">Value</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let forecast of service.Forecasts">
+                <td style="font-weight:bold;">{{ forecast.ID | number }}</td>
+                <td><input value="{{ forecast.Month | month }}"></td>
+                <td><input value="{{ forecast.Value | number }}"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!--<span *ngFor="let forecast of service.Forecasts">
+            <input Forecasts="text" value='{{ forecast.ID | number }} | {{ forecast.Month | month }} | {{ forecast.Value | number }}'>
+          </span>-->
         </div>
         
       </md-card-content>
