@@ -1,171 +1,171 @@
-<table *ngIf='services && services.length'>
+<table border="1" *ngIf='services && services.length'>
   <thead>
     <tr>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">ID</button></td>
+                                   font-weight:bold;width:100%">ID</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">OwnerID</button></td>
+                                   font-weight:bold;width:100%">OwnerID</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">AccountID</button></td>
+                                   font-weight:bold;width:100%">AccountID</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Likelihood</button></td>
+                                   font-weight:bold;width:100%">Likelihood</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Type</button></td>
+                                   font-weight:bold;width:100%">Type</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">FundingSource</button></td>
+                                   font-weight:bold;width:100%">FundingSource</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">CP_Code</button></td>
+                                   font-weight:bold;width:100%">CP_Code</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Description</button></td>
+                                   font-weight:bold;width:100%">Description</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Comment</button></td>
+                                   font-weight:bold;width:100%">Comment</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">ContractValue</button></td>
+                                   font-weight:bold;width:100%">ContractValue</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DecrementAmount</button></td>
+                                   font-weight:bold;width:100%">DecrementAmount</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DecrementMonth</button></td>
+                                   font-weight:bold;width:100%">DecrementMonth</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DecrementReason</button></td>
+                                   font-weight:bold;width:100%">DecrementReason</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">AccountName</button></td>
+                                   font-weight:bold;width:100%">AccountName</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">TPID</button></td>
+                                   font-weight:bold;width:100%">TPID</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">SE</button></td>
+                                   font-weight:bold;width:100%">SE</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">SalesManager</button></td>
+                                   font-weight:bold;width:100%">SalesManager</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">ATU</button></td>
+                                   font-weight:bold;width:100%">ATU</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Segment</button></td>
+                                   font-weight:bold;width:100%">Segment</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DMMOwner</button></td>
+                                   font-weight:bold;width:100%">DMMOwner</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">OpName</button></td>
+                                   font-weight:bold;width:100%">OpName</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">FR</button></td>
+                                   font-weight:bold;width:100%">FR</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">SalesStage</button></td>
+                                   font-weight:bold;width:100%">SalesStage</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DueDate</button></td>
+                                   font-weight:bold;width:100%">DueDate</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">OpValue</button></td>
+                                   font-weight:bold;width:100%">OpValue</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">ServiceOffice</button></td>
+                                   font-weight:bold;width:100%">ServiceOffice</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">GM</button></td>
+                                   font-weight:bold;width:100%">GM</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">SPL</button></td>
+                                   font-weight:bold;width:100%">SPL</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">DMM</button></td>
+                                   font-weight:bold;width:100%">DMM</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">EM</button></td>
+                                   font-weight:bold;width:100%">EM</button></td>
       <td><button md-button style="background-color:lightsteelblue;
-                                   font-weight:bold;">Forecasts</button></td>
+                                   font-weight:bold;width:100%">Forecasts</button></td>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor='let service of services'>
 
       <!-- ID -->
-      <td><button md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
 
       <!-- OwnerId -->
-      <td><button md-button (click)="buttonWasPressed('OwnerId');openDialog(service.ID)">{{ service.OwnerId }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('OwnerId');openDialog(service.ID)">{{ service.OwnerId }}</button></td>
 
       <!-- AccountId -->
-      <td><button md-button (click)="buttonWasPressed('AccountId');openDialog(service.ID)">{{ service.AccountId | number:'1.0-0' }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('AccountId');openDialog(service.ID)">{{ service.AccountId | number:'1.0-0' }}</button></td>
       
       <!-- Likelihood -->
       <td>
         <!-- Red Button when Likelihood = 'High' -->
-        <button md-button *ngIf="service.Likelihood == 'High'" style="background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button *ngIf="service.Likelihood == 'High'" style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
 
         <!-- Yellow Button when Likelihood = 'Med' -->
-        <button md-button *ngIf="service.Likelihood == 'Med'" style="background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button *ngIf="service.Likelihood == 'Med'" style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
 
         <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button *ngIf="service.Likelihood == 'Low'" style="background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button *ngIf="service.Likelihood == 'Low'" style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
       </td>
 
       <!-- Type -->
-      <td><button md-button (click)="buttonWasPressed('Type');openDialog(service.ID)">{{ service.Type }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('Type');openDialog(service.ID)">{{ service.Type }}</button></td>
 
       <!-- FundingSource -->
-      <td><button md-button (click)="buttonWasPressed('FundingSource');openDialog(service.ID)">{{ service.FundingSource }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('FundingSource');openDialog(service.ID)">{{ service.FundingSource }}</button></td>
 
       <!-- CP_Code -->
-      <td><button md-button (click)="buttonWasPressed('CP_Code');openDialog(service.ID)">{{ service.CP_Code }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('CP_Code');openDialog(service.ID)">{{ service.CP_Code }}</button></td>
 
       <!-- Description -->
-      <td><button md-button (click)="buttonWasPressed('Description');openDialog(service.ID)">{{ service.Description }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('Description');openDialog(service.ID)">{{ service.Description }}</button></td>
 
       <!-- Comments -->
-      <td><button md-button (click)="buttonWasPressed('Comments');openDialog(service.ID)">{{ service.Comments }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('Comments');openDialog(service.ID)">{{ service.Comments }}</button></td>
 
       <!-- ContractValue -->
-      <td><button md-button (click)="buttonWasPressed('ContractValue');openDialog(service.ID)">{{ service.ContractValue | number }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('ContractValue');openDialog(service.ID)">{{ service.ContractValue | number }}</button></td>
 
       <!-- DecrementAmount -->
-      <td><button md-button (click)="buttonWasPressed('DecrementAmount');openDialog(service.ID)">{{ service.DecrementAmount | number }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DecrementAmount');openDialog(service.ID)">{{ service.DecrementAmount | number }}</button></td>
 
       <!-- DecrementMonth -->
-      <td><button md-button (click)="buttonWasPressed('DecrementMonth');openDialog(service.ID)">{{ service.DecrementMonth | number:'1.0-0' }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DecrementMonth');openDialog(service.ID)">{{ service.DecrementMonth | number:'1.0-0' }}</button></td>
 
       <!-- DecrementReason -->
-      <td><button md-button (click)="buttonWasPressed('DecrementReason');openDialog(service.ID)">{{ service.DecrementReason }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DecrementReason');openDialog(service.ID)">{{ service.DecrementReason }}</button></td>
 
       <!-- AccountName -->
-      <td><button md-button (click)="buttonWasPressed('AccountName');openDialog(service.ID)">{{ service.AccountName }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('AccountName');openDialog(service.ID)">{{ service.AccountName }}</button></td>
 
       <!-- TPID -->
-      <td><button md-button (click)="buttonWasPressed('TPID');openDialog(service.ID)">{{ service.TPID | number:'1.0-0' }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('TPID');openDialog(service.ID)">{{ service.TPID | number:'1.0-0' }}</button></td>
 
       <!-- SE -->
-      <td><button md-button (click)="buttonWasPressed('SE');openDialog(service.ID)">{{ service.SE }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('SE');openDialog(service.ID)">{{ service.SE }}</button></td>
 
       <!-- SalesManager -->
-      <td><button md-button (click)="buttonWasPressed('SalesManager');openDialog(service.ID)">{{ service.SalesManager }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('SalesManager');openDialog(service.ID)">{{ service.SalesManager }}</button></td>
 
       <!-- ATU -->
-      <td><button md-button (click)="buttonWasPressed('ATU');openDialog(service.ID)">{{ service.ATU }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('ATU');openDialog(service.ID)">{{ service.ATU }}</button></td>
 
       <!-- Segment -->
-      <td><button md-button (click)="buttonWasPressed('Segment');openDialog(service.ID)">{{ service.Segment }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('Segment');openDialog(service.ID)">{{ service.Segment }}</button></td>
 
       <!-- DMMOwner -->
-      <td><button md-button (click)="buttonWasPressed('DMMOwner');openDialog(service.ID)">{{ service.DMMOwner }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DMMOwner');openDialog(service.ID)">{{ service.DMMOwner }}</button></td>
 
       <!-- OpName -->
-      <td><button md-button (click)="buttonWasPressed('OpName');openDialog(service.ID)">{{ service.OpName }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('OpName');openDialog(service.ID)">{{ service.OpName }}</button></td>
 
       <!-- FR -->
-      <td><button md-button (click)="buttonWasPressed('FR');openDialog(service.ID)">{{ service.FR | number }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('FR');openDialog(service.ID)">{{ service.FR | number }}</button></td>
 
       <!-- SalesStage -->
-      <td><button md-button (click)="buttonWasPressed('SalesStage');openDialog(service.ID)">{{ service.SalesStage }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('SalesStage');openDialog(service.ID)">{{ service.SalesStage }}</button></td>
 
       <!-- DueDate -->
-      <td><button md-button (click)="buttonWasPressed('DueDate');openDialog(service.ID)">{{ service.DueDate | date:'EEE, MMM d, y h:mm:ss a Z' }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DueDate');openDialog(service.ID)">{{ service.DueDate | date:'EEE, MMM d, y h:mm:ss a Z' }}</button></td>
 
       <!-- OpValue -->
-      <td><button md-button (click)="buttonWasPressed('OpValue');openDialog(service.ID)">{{ service.OpValue | number }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('OpValue');openDialog(service.ID)">{{ service.OpValue | number }}</button></td>
 
       <!-- ServiceOffice -->
-      <td><button md-button (click)="buttonWasPressed('ServiceOffice');openDialog(service.ID)">{{ service.ServiceOffice }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('ServiceOffice');openDialog(service.ID)">{{ service.ServiceOffice }}</button></td>
 
       <!-- GM -->
-      <td><button md-button (click)="buttonWasPressed('GM');openDialog(service.ID)">{{ service.GM }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('GM');openDialog(service.ID)">{{ service.GM }}</button></td>
 
       <!-- SPL -->
-      <td><button md-button (click)="buttonWasPressed('SPL');openDialog(service.ID)">{{ service.SPL }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('SPL');openDialog(service.ID)">{{ service.SPL }}</button></td>
 
       <!-- DMM -->
-      <td><button md-button (click)="buttonWasPressed('DMM');openDialog(service.ID)">{{ service.DMM }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('DMM');openDialog(service.ID)">{{ service.DMM }}</button></td>
 
       <!-- EM -->
-      <td><button md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
+      <td><button style="width:100%" md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
 
       <!--Forecasts -->
       <td>
