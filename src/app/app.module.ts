@@ -14,6 +14,7 @@ import { UpdateDataComponent } from './update-data/update-data.component';
 import { routing } from "app/app.routing";
 import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { AddEntryComponent } from './add-entry/add-entry.component';
+import { MonthPipe } from './month.pipe';
 
 // My Service Imports
 
@@ -23,7 +24,8 @@ import { AddEntryComponent } from './add-entry/add-entry.component';
     ViewDataComponent,
     UpdateDataComponent,
     NavButtonsComponent,
-    AddEntryComponent
+    AddEntryComponent,
+    MonthPipe
   ],
   imports: [
     BrowserModule,

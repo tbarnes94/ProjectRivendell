@@ -153,6 +153,8 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
         return 28;
       case 'EM':
         return 29;
+      case 'Forecasts':
+        return 30;
       default:
         return 0; // Update Entry form should not be editable
     }
