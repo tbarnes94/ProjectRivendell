@@ -39,18 +39,17 @@ $('document').ready(function(){
                 }
                 else {
                     for (var c = 0; c < cols; c++)
-                    $('<td><input type="text"/></td>').appendTo(tr);
+                    $('<td><input type="text" placeholder="$1000" data-type="val"/></td>').appendTo(tr);
                 tr.appendTo(tableHolder);
                 }
             }
-       
-        // for (var i = date-1; i < date+duration-1; i++) {
-        //     var month = monthNames[i] + ' ' + year;
-        //     console.log(month);
-        // }
-
-        table.append('body');
+            table.append('body');
         }
+
+        $('input[data-type=val]').change(function() {
+            this.value = "$" + Number(this.value).toLocaleString();
+        }); 
+    
     });
 
     $('#back').on('click',function(){
