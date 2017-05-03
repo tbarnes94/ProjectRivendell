@@ -14,11 +14,10 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   // Keys
   public serviceId: number;
   public testBool: boolean;
+  public forecastIndex: number;
 
   // Objects
   public service: IService;
-  public serv: IService;
-  public services: Array<IService>;
   public sub: Subscription;
   public buttonBools: Array<boolean>;
 
@@ -60,9 +59,9 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getServices();
     this.getService(this.serviceId);
     console.log(this.buttonBools);
+    console.log(this.forecastIndex);
   }
 
   ngOnDestroy(): void {
@@ -74,12 +73,6 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   getService(id: number): void {
     this._dataService.getService(id).subscribe(
       service => this.service = service,
-      error => this.updateMessage(<any>error, 'Error'));
-  }
-
-  getServices(): void {
-    this._dataService.getServices().subscribe(
-      services => this.services = services,
       error => this.updateMessage(<any>error, 'Error'));
   }
 

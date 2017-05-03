@@ -321,25 +321,38 @@
         </div>
 
         <!-- Forecasts -->
-        <div *ngIf="!buttonBools[indexOfField('Forecasts')]">
+        <!--<div *ngIf="!buttonBools[indexOfField('Forecasts')]">
           <label><strong>Forecasts:</strong></label>
           <span *ngFor="let forecast of service.Forecasts">{{ forecast.ID | number }} | {{ forecast.Month | month }} | {{ forecast.Value | number }}<br></span>
-        </div>
-        <div *ngIf="buttonBools[indexOfField('Forecasts')]">
+        </div>-->
+        <div>
           <label><strong>Forecasts:</strong></label>
           <table>
             <thead>
               <tr>
-                <td style="font-weight:bold;">ID</td>
-                <td style="font-weight:bold;">Month</td>
-                <td style="font-weight:bold;">Value</td>
+                <td style="width:1ch"></td>
+                <td style="font-weight:bold;color:darkslategray">ID</td>
+                <td style="width:1ch"></td>
+                <td style="font-weight:bold;color:darkslategray">Month</td>
+                <td style="width:1ch"></td>
+                <td style="font-weight:bold;color:darkslategray">Value</td>
+                <td style="width:1ch"></td>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let forecast of service.Forecasts">
-                <td style="font-weight:bold;">{{ forecast.ID | number }}</td>
-                <td><input value="{{ forecast.Month | month }}"></td>
-                <td><input value="{{ forecast.Value | number }}"></td>
+                <td style="width:1ch"></td>
+                <td style="font-weight:bold;color:darkslategray">{{ forecast.ID | number }}</td>
+                <td style="width:1ch"></td>
+                <td style="font-weight:bold;color:darkslategrey">{{ forecast.Month | month }}</td>
+                <td style="width:1ch"></td>
+
+                <!-- Display Forecast Value -->
+                <td *ngIf="!(buttonBools[indexOfField('Forecasts')] && forecastIndex == forecast.ID)" style="font-weight:bold;color:darkslategrey">${{ forecast.Value | number }}</td>
+
+                <!-- Edit Forecast Value -->
+                <td *ngIf="buttonBools[indexOfField('Forecasts')] && forecastIndex == forecast.ID"><input value="{{ forecast.Value | number }}"></td>
+                <td style="width:1ch"></td>
               </tr>
             </tbody>
           </table>
@@ -351,7 +364,7 @@
       </md-card-content>
       <md-card-actions>
         <div class="text-right">
-          <button md-button md-dialog-check *ngIf='true'><i class="material-icons">check</i>SUBMIT</button>
+          <button md-button md-dialog-check><i class="material-icons">check</i>SUBMIT</button>
           <button md-button md-dialog-close><i class="material-icons">close</i>CLOSE</button>
           <!--<button md-button (click)="return()" *ngIf="!serviceId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>-->
         </div>

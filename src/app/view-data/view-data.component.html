@@ -169,9 +169,21 @@
 
       <!--Forecasts -->
       <td>
-        <span *ngFor="let forecast of service['Forecasts']">
-          <button md-button style="background-color:black;" (click)="buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
-        </span>
+        <table border="1" frame=vsides *ngIf="service.Forecasts && service.Forecasts.length">
+          <thead>
+            <tr>
+              <td *ngFor="let forecast of service.Forecasts">
+                <button md-button style="width:100%;background-color:black;" (click)="forecastButtonWasPressed(forecast.ID);buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          <!--<span *ngFor="let forecast of service.Forecasts">
+            <button md-button style="background-color:black;" (click)="buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
+          </span>-->
+        </table>
+        <div *ngIf="!(service.Forecasts && service.Forecasts.length)">TODO: Add Forecasts?</div>
       </td>
     </tr>
   </tbody>

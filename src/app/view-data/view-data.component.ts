@@ -15,6 +15,7 @@ export class ViewDataComponent implements OnInit {
   public infoMessage = '';
   public buttonBool = false;
   private buttonIndex = 0;
+  private forecastIndex = 0;
 
   constructor(private _dataService: DataService,
               private _dialog: MdDialog) {
@@ -33,12 +34,24 @@ export class ViewDataComponent implements OnInit {
     dialogRef.componentInstance.serviceId = serviceId;
     dialogRef.componentInstance.buttonBools[this.buttonIndex] = this.buttonBool;
     console.log('Pressed Button: '+this.buttonIndex);
+    try {
+      console.log('Forecast Button: '+this.forecastIndex);
+      dialogRef.componentInstance.forecastIndex = this.forecastIndex;
+    }
+    catch (errMsg){
+      console.log('Not a Forecast Button. '+errMsg);
+    }
     this.buttonBool = false;
     this.buttonIndex = 0;
+    this.forecastIndex = 0;
   }
 
   updateMessage(message: string): void {
       this.infoMessage = message;
+  }
+
+  forecastButtonWasPressed(forecastIndex: number): void {
+    this.forecastIndex = forecastIndex;
   }
 
   buttonWasPressed(buttonName: string): void {
