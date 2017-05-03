@@ -1,4 +1,4 @@
-<nav md-tab-nav-bar>
+<nav md-tab-nav-bar style="position:fixed;z-index:1;background:white;width:100%;">
   <a md-tab-link
      *ngFor="let link of navLinks"
      [hidden]="!link.path"
@@ -9,5 +9,5 @@
     {{link.label}}
   </a>
 </nav>
-<br><br>
+<br><br><br><br>
 <router-outlet></router-outlet>
