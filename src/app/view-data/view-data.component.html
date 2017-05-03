@@ -1,68 +1,99 @@
 <table id="myTable2" border="1" *ngIf='services && services.length'>
   <thead>
     <tr>
-      <th onclick="sortTable(0)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">ID</th>
-      <th onclick="sortTable(1)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Owner ID</th>
-      <th onclick="sortTable(2)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Account ID</th>
-      <th onclick="sortTable(3)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Likelihood</th>
-      <th onclick="sortTable(4)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Type</th>
-      <th onclick="sortTable(5)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Funding Source</th>
-      <th onclick="sortTable(6)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">CP_Code</th>
-      <th onclick="sortTable(7)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Description</th>
-      <th onclick="sortTable(8)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Comment</th>
-      <th onclick="sortTable(9)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Contract Value</th>
-      <th onclick="sortTable(10)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Decrement Amount</th>
-      <th onclick="sortTable(11)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Decrement Month</th>
-      <th onclick="sortTable(12)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Decrement Reason</th>
-      <th onclick="sortTable(13)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Account Name</th>
-      <th onclick="sortTable(14)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">TPID</th>
-      <th onclick="sortTable(15)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">SE</th>
-      <th onclick="sortTable(16)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Sales Manager</th>
-      <th onclick="sortTable(17)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">ATU</th>
-      <th onclick="sortTable(18)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Segment</th>
-      <th onclick="sortTable(19)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">DMM Owner</th>
-      <th onclick="sortTable(20)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Op Name</th>
-      <th onclick="sortTable(21)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">FR</th>
-      <th onclick="sortTable(22)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Sales Stage</th>
-      <th onclick="sortTable(23)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Due Date</th>
-      <th onclick="sortTable(24)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Op Value</th>
-      <th onclick="sortTable(25)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Service Office</th>
-      <th onclick="sortTable(26)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">GM</th>
-      <th onclick="sortTable(27)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">SPL</th>
-      <th onclick="sortTable(28)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">DMM</th>
-      <th onclick="sortTable(29)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">EM</th>
-      <th onclick="sortTable(30)" style="background-color:lightsteelblue;
-                                   font-weight:bold;width:100%;text-align:center">Forecasts</th>
+      <th onclick="sortTable(0)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ID</button>
+      </th>
+      <th onclick="sortTable(1)" style="background-color:lightsteelblue;">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">OwnerID</button>
+      </th>
+      <th onclick="sortTable(2)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">AccountID</button>
+      </th>
+      <th onclick="sortTable(3)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Likelihood</button>
+      </th>
+      <th onclick="sortTable(4)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Type</button>
+      </th>
+      <th onclick="sortTable(5)" style="background-color:lightsteelblue;">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">FundingSource</button>
+      </th>
+      <th onclick="sortTable(6)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">CP_Code</button>
+      </th>
+      <th onclick="sortTable(7)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Description</button>
+      </th>
+      <th onclick="sortTable(8)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Comments</button>
+      </th>
+      <th onclick="sortTable(9)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ContractValue</button>
+      </th>
+      <th onclick="sortTable(10)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DecrementAmount</button>
+      </th>
+      <th onclick="sortTable(11)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DecrementMonth</button>
+      </th>
+      <th onclick="sortTable(12)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DecrementReason</button>
+      </th>
+      <th onclick="sortTable(13)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">AccountName</button>
+      </th>
+      <th onclick="sortTable(14)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">TPID</button>
+      </th>
+      <th onclick="sortTable(15)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">SE</button>
+      </th>
+      <th onclick="sortTable(16)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">SalesManager</button>
+      </th>
+      <th onclick="sortTable(17)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ATU</button>
+      </th>
+      <th onclick="sortTable(18)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Segment</button>
+      </th>
+      <th onclick="sortTable(19)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DMMOwner</button>
+      </th>
+      <th onclick="sortTable(20)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">OpName</button>
+      </th>
+      <th onclick="sortTable(21)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">FR</button>
+      </th>
+      <th onclick="sortTable(22)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">SalesStage</button>
+      </th>
+      <th onclick="sortTable(23)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DueDate</button>
+      </th>
+      <th onclick="sortTable(24)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">OpValue</button>
+      </th>
+      <th onclick="sortTable(25)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ServiceOffice</button>
+      </th>
+      <th onclick="sortTable(26)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">GM</button>
+      </th>
+      <th onclick="sortTable(27)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">SPL</button>
+      </th>
+      <th onclick="sortTable(28)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">DMM</button>
+      </th>
+      <th onclick="sortTable(29)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">EM</button>
+      </th>
+      <th onclick="sortTable(30)" style="background-color:lightsteelblue">
+        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Forecasts</button>
+      </th>
     </tr>
   </thead>
   <tbody>
