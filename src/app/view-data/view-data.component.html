@@ -109,15 +109,19 @@
       <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountId');openDialog(service.ID)">{{ service.AccountId | number:'1.0-0' }}</button></td>
       
       <!-- Likelihood -->
-      <td class="sortablerow">
+      <td *ngIf="service.Likelihood == 'High'" class="sortablerow" style="width:100%;background-color:#e74c3c">
         <!-- Red Button when Likelihood = 'High' -->
-        <button md-button *ngIf="service.Likelihood == 'High'" style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+      </td>
 
+      <td *ngIf="service.Likelihood == 'Med'" class="sortablerow" style="width:100%;background-color:#ffbb33">
         <!-- Yellow Button when Likelihood = 'Med' -->
-        <button md-button *ngIf="service.Likelihood == 'Med'" style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+      </td>
 
+      <td *ngIf="service.Likelihood == 'Low'" class="sortablerow" style="width:100%;background-color:#18bc9c">
         <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button *ngIf="service.Likelihood == 'Low'" style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
       </td>
 
       <!-- Type -->
@@ -199,11 +203,11 @@
       <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
 
       <!--Forecasts -->
-      <td class="sortablerow">
+      <td class="sortablerow" style="width:100%;background-color:black;">
         <table border="1" frame=vsides *ngIf="service.Forecasts && service.Forecasts.length">
           <thead>
             <tr>
-              <td *ngFor="let forecast of service.Forecasts">
+              <td *ngFor="let forecast of service.Forecasts" style="width:100%;background-color:black;">
                 <button md-button style="width:100%;background-color:black;" (click)="forecastButtonWasPressed(forecast.ID);buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
               </td>
             </tr>
