@@ -1,5 +1,8 @@
 $('document').ready(function(){
 
+    $('#duration').tooltip('toggle');
+
+
     $('#next').on('click',function(e){
         if($("#startdate").val() != "" && $("#duration").val() != "") {
             $('#input_1').hide();
