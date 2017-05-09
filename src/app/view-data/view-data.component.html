@@ -1,7 +1,10 @@
+<script src="jquery.tabletoCSV.js"></script>
+
+
 <table id="myTable2" border="1" *ngIf='services && services.length'>
   <thead>
     <tr>
-      <th onclick="sortTable(0)" style="background-color:lightsteelblue">
+      <th onclick="sortTable(0)" id="header" style="background-color:lightsteelblue">
         <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ID</button>
       </th>
       <th onclick="sortTable(1)" style="background-color:lightsteelblue;">
@@ -100,110 +103,109 @@
     <tr class="sortme" *ngFor='let service of services'>
 
       <!-- ID -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
+      <td class="sortablerowme"><button style="width:100%" md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
 
       <!-- OwnerId -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OwnerId');openDialog(service.ID)">{{ service.OwnerId }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OwnerId');">{{ service.OwnerId }}</button></td>
 
       <!-- AccountId -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountId');openDialog(service.ID)">{{ service.AccountId | number:'1.0-0' }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountId');">{{ service.AccountId | number:'1.0-0' }}</button></td>
       
       <!-- Likelihood -->
       <td *ngIf="service.Likelihood == 'High'" class="sortablerow" style="width:100%;background-color:#e74c3c">
         <!-- Red Button when Likelihood = 'High' -->
-        <button md-button style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');">{{service.Likelihood}}</button>
       </td>
 
       <td *ngIf="service.Likelihood == 'Med'" class="sortablerow" style="width:100%;background-color:#ffbb33">
         <!-- Yellow Button when Likelihood = 'Med' -->
-        <button md-button style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');">{{service.Likelihood}}</button>
       </td>
 
       <td *ngIf="service.Likelihood == 'Low'" class="sortablerow" style="width:100%;background-color:#18bc9c">
         <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');openDialog(service.ID)">{{service.Likelihood}}</button>
+        <button md-button style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');">{{service.Likelihood}}</button>
       </td>
 
       <!-- Type -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Type');openDialog(service.ID)">{{ service.Type }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Type');">{{ service.Type }}</button></td>
 
       <!-- FundingSource -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('FundingSource');openDialog(service.ID)">{{ service.FundingSource }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('FundingSource');">{{ service.FundingSource }}</button></td>
 
       <!-- CP_Code -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('CP_Code');openDialog(service.ID)">{{ service.CP_Code }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('CP_Code');">{{ service.CP_Code }}</button></td>
 
       <!-- Description -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Description');openDialog(service.ID)">{{ service.Description }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Description');">{{ service.Description }}</button></td>
 
       <!-- Comments -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Comments');openDialog(service.ID)">{{ service.Comments }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Comments');">{{ service.Comments }}</button></td>
 
       <!-- ContractValue -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ContractValue');openDialog(service.ID)">{{ service.ContractValue | number }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ContractValue');">{{ service.ContractValue | number }}</button></td>
 
       <!-- DecrementAmount -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementAmount');openDialog(service.ID)">{{ service.DecrementAmount | number }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementAmount');">{{ service.DecrementAmount | number }}</button></td>
 
       <!-- DecrementMonth -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementMonth');openDialog(service.ID)">{{ service.DecrementMonth | number:'1.0-0' }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementMonth');">{{ service.DecrementMonth | number:'1.0-0' }}</button></td>
 
       <!-- DecrementReason -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementReason');openDialog(service.ID)">{{ service.DecrementReason }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementReason');">{{ service.DecrementReason }}</button></td>
 
       <!-- AccountName -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountName');openDialog(service.ID)">{{ service.AccountName }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountName');">{{ service.AccountName }}</button></td>
 
       <!-- TPID -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('TPID');openDialog(service.ID)">{{ service.TPID | number:'1.0-0' }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('TPID');">{{ service.TPID | number:'1.0-0' }}</button></td>
 
       <!-- SE -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SE');openDialog(service.ID)">{{ service.SE }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SE');">{{ service.SE }}</button></td>
 
       <!-- SalesManager -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesManager');openDialog(service.ID)">{{ service.SalesManager }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesManager');">{{ service.SalesManager }}</button></td>
 
       <!-- ATU -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ATU');openDialog(service.ID)">{{ service.ATU }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ATU');">{{ service.ATU }}</button></td>
 
       <!-- Segment -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Segment');openDialog(service.ID)">{{ service.Segment }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Segment');">{{ service.Segment }}</button></td>
 
       <!-- DMMOwner -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DMMOwner');openDialog(service.ID)">{{ service.DMMOwner }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DMMOwner');">{{ service.DMMOwner }}</button></td>
 
       <!-- OpName -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OpName');openDialog(service.ID)">{{ service.OpName }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OpName');">{{ service.OpName }}</button></td>
 
       <!-- FR -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('FR');openDialog(service.ID)">{{ service.FR | number }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('FR');">{{ service.FR | number }}</button></td>
 
       <!-- SalesStage -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesStage');openDialog(service.ID)">{{ service.SalesStage }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesStage');">{{ service.SalesStage }}</button></td>
 
       <!-- DueDate -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DueDate');openDialog(service.ID)">{{ service.DueDate | date:'EEE, MMM d, y h:mm:ss a Z' }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DueDate');">{{ service.DueDate | date:'EEE - MMM d - y h:mm:ss a Z' }}</button></td>
 
       <!-- OpValue -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OpValue');openDialog(service.ID)">{{ service.OpValue | number }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OpValue');">{{ service.OpValue | number }}</button></td>
 
       <!-- ServiceOffice -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ServiceOffice');openDialog(service.ID)">{{ service.ServiceOffice }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ServiceOffice');">{{ service.ServiceOffice }}</button></td>
 
       <!-- GM -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('GM');openDialog(service.ID)">{{ service.GM }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('GM');">{{ service.GM }}</button></td>
 
       <!-- SPL -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SPL');openDialog(service.ID)">{{ service.SPL }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SPL');">{{ service.SPL }}</button></td>
 
       <!-- DMM -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DMM');openDialog(service.ID)">{{ service.DMM }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DMM');">{{ service.DMM }}</button></td>
 
       <!-- EM -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('EM');openDialog(service.ID)">{{ service.EM }}</button></td>
+      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('EM');">{{ service.EM }}</button></td>
 
-      <!--Forecasts -->
-      <td class="sortablerow" style="width:100%;background-color:black;">
+      <!--<td class="sortablerow" style="width:100%;background-color:black;">
         <table border="1" frame=vsides *ngIf="service.Forecasts && service.Forecasts.length">
           <thead>
             <tr>
@@ -214,12 +216,10 @@
           </thead>
           <tbody>
           </tbody>
-          <!--<span *ngFor="let forecast of service.Forecasts">
-            <button md-button style="background-color:black;" (click)="buttonWasPressed('Forecasts');openDialog(service.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
-          </span>-->
+         
         </table>
         <div *ngIf="!(service.Forecasts && service.Forecasts.length)">TODO: Add Forecasts?</div>
-      </td>
+      </td>-->
     </tr>
   </tbody>
 </table>

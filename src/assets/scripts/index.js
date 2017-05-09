@@ -4,7 +4,7 @@ $('document').ready(function(){
 
 
     $('#next').on('click',function(e){
-        if($("#startdate").val() != "" && $("#duration").val() != "") {
+        if($("#startdate").val() != "" && $("#enddate").val() != "") {
             $('#input_1').hide();
             $('#input_2').show();
             $('#back').show();
@@ -18,10 +18,13 @@ $('document').ready(function(){
             var segment = $("#segment").val();
             var tpid = $("#tpid").val();
             var startdate = $("#startdate").val();
+            var enddate = $("#enddate").val();
 
             var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            var date =  Number($('#startdate').val().split("/")[0]);
-            var duration = Number($("#duration").val());
+            var start_date =  Number($('#startdate').val().split("/")[0]);
+            var end_date = Number($('#enddate').val().split("/")[0]);
+            var duration = end_date - start_date + 1;
+            console.log(duration);
             var year = new Date().getFullYear()
             var rows = 2;
             var cols = duration;
@@ -30,7 +33,7 @@ $('document').ready(function(){
             {
                 var tr = $('<tr>');
                 if(r==0) {
-                    var i = date-1;
+                    var i = start_date-1;
                     var c = 0;
                     while(c < cols) {
                         var month = monthNames[i%12] + ' ' + year;
@@ -118,3 +121,47 @@ function sortTable(n) {
     }
   }
 }
+
+function downloadCSV(csv, filename) {
+    var csvFile;
+    var downloadLink;
+
+    // CSV file
+    csvFile = new Blob([csv], {type: "text/csv"});
+
+    // Download link
+    downloadLink = document.createElement("a");
+
+    // File name
+    downloadLink.download = filename;
+
+    // Create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+
+    // Hide download link
+    downloadLink.style.display = "none";
+
+    // Add the link to DOM
+    document.body.appendChild(downloadLink);
+
+    // Click download link
+    downloadLink.click();
+}
+
+function exportTableToCSV(filename) {
+    var csv = [];
+    var rows = document.querySelectorAll("table tr");
+    
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+        
+        for (var j = 0; j < cols.length; j++) 
+            row.push(cols[j].innerText);
+        
+        csv.push(row.join(","));        
+    }
+
+    // Download CSV file
+    downloadCSV(csv.join("\n"), filename);
+}
+

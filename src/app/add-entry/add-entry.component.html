@@ -1,113 +1,137 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Group 1</a></li>
+  <li><a data-toggle="tab" href="#menu1">Group 2</a></li>
+  <li><a data-toggle="tab" href="#menu2">Group 3</a></li>
+</ul>
 
-<!-- First entry table with two columns of input boxes -->
-<div class="row">
-  <div class="col-md-6">
-    <form role="form" data-toggle="validator" class="form-horizontal" method="POST">
-      <div class="form-group">
-        <label for="serviceoffice" class="col-sm-2 control-label">Service Office</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="serviceoffice" placeholder="Service Office" required>
-        </div>
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <!-- First entry table with two columns of input boxes -->
+    <br>
+    <div class="row">
+      <div class="col-md-10">
+        <form role="form" data-toggle="validator" class="form-horizontal" method="POST">
+          <div class="form-group">
+            <label for="serviceoffice" class="col-sm-2 control-label">Service Office</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="serviceoffice" placeholder="Service Office" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="spl" class="col-sm-2 control-label">SPL</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="spl" placeholder="SPL" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dmm" class="col-sm-2 control-label">DMM</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dmm" placeholder="DMM" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="em_ade" class="col-sm-2 control-label">EM/ADE</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="em_ade" placeholder="EM/ADE" required>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="spl" class="col-sm-2 control-label">SPL</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="spl" placeholder="SPL" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="dmm" class="col-sm-2 control-label">DMM</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="dmm" placeholder="DMM" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="em_ade" class="col-sm-2 control-label">EM/ADE</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="em_ade" placeholder="EM/ADE" required>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
 
-  <div class="col-md-6">
-    <form data-toggle="validator" class="form-horizontal" method="POST">
-      <div class="form-group">
-        <label for="se" class="col-sm-2 control-label">SE</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="se" placeholder="SE" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="segment" class="col-sm-2 control-label">Segment</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="segment" placeholder="Segment" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="tpid" class="col-sm-2 control-label">TPID</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="tpid" placeholder="TPID" required>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- end table -->
-<hr>
-<hr>
-<!-- begin second table -->
-
-<div class="row" id="input_1">
-  <div class="col-md-6">
-    <form class="form-horizontal" method="POST">
-      <div class="form-group">
-        <label for="startdate" class="col-sm-2 control-label">Project Start Date</label>
-        <div class="col-sm-10 input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" id="startdate" placeholder="MM/DD/YYYY" disabled>
-          <div class="input-group-addon" style="background:white">
-              <span class="glyphicon glyphicon-calendar"></span>
+  <div id="menu1" class="tab-pane fade">
+    <div class="col-md-10">
+      <br>
+      <form data-toggle="validator" class="form-horizontal" method="POST">
+        <div class="form-group">
+          <label for="se" class="col-sm-2 control-label">SE</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="se" placeholder="SE" required>
           </div>
         </div>
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="segment" class="col-sm-2 control-label">Segment</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="segment" placeholder="Segment" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tpid" class="col-sm-2 control-label">TPID</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="tpid" placeholder="TPID" required>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="col-md-6">
-    <form class="form-horizontal" method="POST">
-      <div class="form-group">
-        <label for="startdate" class="col-sm-2 control-label">Project Duration</label>
-        <div class="col-sm-10">
-          <input type="number" min=1 class="form-control" id="duration" placeholder="(Months)" data-toggle="tooltip" data-placement="bottom" title="Enter value including the selected month">
+
+  <div id="menu2" class="tab-pane fade">
+      <!-- begin second table -->
+      <br><br><br><br>
+      <div class="row" id="input_1">
+        <div class="col-md-6">
+          <form class="form-horizontal" method="POST">
+            <div class="form-group">
+              <label for="startdate" class="col-sm-2 control-label">Project Start Date</label>
+              <div class="col-sm-10 input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="startdate" placeholder="MM/DD/YYYY" disabled>
+                <div class="input-group-addon" style="background:white">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <form class="form-horizontal" method="POST">
+            <div class="form-group">
+              <label for="enddate" class="col-sm-2 control-label">Project End Date</label>
+              <div class="col-sm-10 input-group date" data-provide="datepicker">
+                <input type="text" class="form-control" id="enddate" placeholder="MM/DD/YYYY" disabled>
+                <div class="input-group-addon" style="background:white">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+              </div>
+            </div>
+            <!--<div class="form-group">
+              <label for="startdate" class="col-sm-2 control-label">Project Duration</label>
+              <div class="col-sm-10">
+                <input type="number" min=1 class="form-control" id="duration" placeholder="(Months)" data-toggle="tooltip" data-placement="bottom" title="Enter value including the selected month">
+              </div>
+            </div>-->
+          </form>
         </div>
       </div>
-    </form>
-  </div>
-</div>
 
-<!-- hidden div -->
+    <!-- hidden div -->
 
-<div class="centered" id="input_2" style="display:none;text-align:center" layout-align="center center">
-  <b>Enter Monthly Revenue Forecast</b>
-  <br><br>
-  <table align="center" id="tableHolder"></table>
-</div>
-<br>
-
-<!-- end -->
-<div class="row">
-  <div class="col-md-3">
-    <div class="" >
-      <button style="display:none" id="back" class="btn btn-large btn-primary" type="button">Back..</button>
+    <div class="centered" id="input_2" style="display:none;text-align:center" layout-align="center center">
+      <b>Enter Monthly Revenue Forecast</b>
+      <br><br>
+      <table align="center" id="tableHolder"></table>
     </div>
-  </div>
-  <div class="col-md-6">
-    <div class="centered" style="text-align:center">
-      <button id="next" class="btn btn-large btn-success" style="width:30%" type="button">Next..</button>
+    <br>
+
+    <!-- end -->
+    <div class="row">
+      <div class="col-md-3">
+        <div class="" >
+          <button style="display:none" id="back" class="btn btn-large btn-primary" type="button">Back..</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="centered" style="text-align:center">
+          <button id="next" class="btn btn-large btn-success" style="width:30%" type="button">Next..</button>
+        </div>
+      </div>
     </div>
+    <br>
   </div>
+
 </div>
-<br>
+
+  
 
 
 

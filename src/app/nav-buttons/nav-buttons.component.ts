@@ -21,10 +21,6 @@ export class NavButtonsComponent implements OnInit {
     {
       path: 'add-entry',
       label: 'ADD ENTRY'
-    },
-    {
-      path: 'generate-report',
-      label: "EXPORT TO XLS"
     }
   ];
 
