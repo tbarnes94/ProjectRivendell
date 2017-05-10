@@ -15,6 +15,7 @@ import { routing } from "app/app.routing";
 import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { AddEntryComponent } from './add-entry/add-entry.component';
 import { MonthPipe } from './month.pipe';
+import { DataService } from 'app/data.service';
 
 // My Service Imports
 
@@ -36,7 +37,7 @@ import { MonthPipe } from './month.pipe';
     routing,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DataService],
   entryComponents: [UpdateDataComponent],
   bootstrap: [AppComponent]
 })

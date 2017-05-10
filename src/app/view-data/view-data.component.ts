@@ -29,6 +29,7 @@ export class ViewDataComponent implements OnInit {
   }
 
   openDialog(serviceId: number): void {
+    console.log(serviceId);
     let config = {width: '650px', height: '400x', position: {top: '50px'}};
     let dialogRef = this._dialog.open(UpdateDataComponent, config);
     dialogRef.componentInstance.serviceId = serviceId;
