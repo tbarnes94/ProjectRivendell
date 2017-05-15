@@ -4,15 +4,6 @@
 <table id="myTable2" border="1" *ngIf='services && services.length'>
   <thead>
     <tr>
-      <th onclick="sortTable(0)" id="header" style="background-color:lightsteelblue">
-        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">ID</button>
-      </th>
-      <th onclick="sortTable(1)" style="background-color:lightsteelblue;">
-        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">OwnerID</button>
-      </th>
-      <th onclick="sortTable(2)" style="background-color:lightsteelblue">
-        <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">AccountID</button>
-      </th>
       <th onclick="sortTable(3)" style="background-color:lightsteelblue">
         <button md-button style="background-color:lightsteelblue;font-weight:bold;width:100%;text-align:center">Likelihood</button>
       </th>
@@ -101,15 +92,6 @@
   </thead>
   <tbody>
     <tr class="sortme" *ngFor='let service of services'>
-
-      <!-- ID -->
-      <td class="sortablerowme"><button style="width:100%" md-button (click)="buttonWasPressed('ID');openDialog(service.ID)">{{ service.ID }}</button></td>
-
-      <!-- OwnerId -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OwnerId');">{{ service.OwnerId }}</button></td>
-
-      <!-- AccountId -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountId');">{{ service.AccountId | number:'1.0-0' }}</button></td>
       
       <!-- Likelihood -->
       <td *ngIf="service.Likelihood == 'High'" class="sortablerow" style="width:100%;background-color:#e74c3c">
@@ -220,6 +202,6 @@
         </table>
         <div *ngIf="!(service.Forecasts && service.Forecasts.length)">TODO: Add Forecasts?</div>
       </td>-->
-    </tr>
+    <!--</tr>-->
   </tbody>
 </table>

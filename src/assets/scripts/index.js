@@ -2,29 +2,56 @@ $('document').ready(function(){
 
     $('#duration').tooltip('toggle');
 
+    $('#save1').on('click',function(e) {
+        var input_fields = document.forms["form1"].getElementsByClassName("form-control");
+        var entry;
+        for (entry in input_fields) {
+            if(input_fields[entry].value == "") {
+                alert("Fill out all fields");
+                return;
+            }
+        }
+        alert("Form is saved");
+    });
+    
+    $('#save2').on('click',function(e) {
+        var input_fields = document.forms["form2"].getElementsByClassName("form-control");
+        var entry;
+        for (entry in input_fields) {
+            if(input_fields[entry].value == "") {
+                alert("Fill out all fields");
+                return;
+            }
+        }
+        alert("Form is saved");
+        });
+
 
     $('#next').on('click',function(e){
-        if($("#startdate").val() != "" && $("#enddate").val() != "") {
+        if($("#startdate").val() == "" || $("#enddate").val() == "") {
+            alert("Enter Startdate and Enddate");
+            return;
+        } else {
+            var start_date =  Number($('#startdate').val().split("/")[0]);
+            var end_date = Number($('#enddate').val().split("/")[0]);
+            var start_year =  Number($('#startdate').val().split("/")[2]);
+            var end_year = Number($('#enddate').val().split("/")[2]);
+            if (start_year > end_year || start_date > end_date) { 
+                alert("End date has to be after Start date");
+                e.preventDefault;
+                return;
+            }
+
             $('#input_1').hide();
             $('#input_2').show();
             $('#back').show();
+            $('#next').text('Save');
+            $('#next').attr('id', 'save3');
 
-            e.preventDefault();
-            var serviceoffice = $("#serviceoffice").val(); 
-            var spl = $("#spl").val();
-            var dmm = $("#dmm").val();
-            var em_ade = $("#em_ade").val();
-            var se = $("#se").val();
-            var segment = $("#segment").val();
-            var tpid = $("#tpid").val();
-            var startdate = $("#startdate").val();
-            var enddate = $("#enddate").val();
-
+            
             var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            var start_date =  Number($('#startdate').val().split("/")[0]);
-            var end_date = Number($('#enddate').val().split("/")[0]);
+            
             var duration = end_date - start_date + 1;
-            console.log(duration);
             var year = new Date().getFullYear()
             var rows = 2;
             var cols = duration;
@@ -55,12 +82,29 @@ $('document').ready(function(){
         $('input[data-type=val]').change(function() {
             this.value = "$" + Number(this.value).toLocaleString();
         }); 
+
     
     });
+
+    $("#save3").on('click',function(e) {
+        console.log("im in here");
+        var input_fields = document.forms["form3"].getElementsByClassName("form-control");
+        var entry;
+        for (entry in input_fields) {
+            if(input_fields[entry].value == "") {
+                alert("Fill out all fields");
+                e.preventDefault;
+                return;
+            }
+        }
+        alert("Form is saved");
+        });
 
     $('#back').on('click',function(){
         $('#input_2').hide();
         $('#input_1').show();
+        $('#save3').text('Next');
+        $('#save3').attr('id', 'next');
         $('#back').hide();
         var elem = document.getElementById('tableHolder');
         while (elem.hasChildNodes()) {
@@ -68,6 +112,7 @@ $('document').ready(function(){
         }
         
     });
+
 });
 
 /* Function to make table headers sortable */

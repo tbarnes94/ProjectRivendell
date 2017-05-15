@@ -2,9 +2,7 @@ import { IForecast } from "app/iforecast";
 import { Observable } from "rxjs/Observable";
 
 export interface IService {
-    ID: number,
-    OwnerId: string,
-    AccountId: number,
+    EntityId: number,
     Likelihood: string,
     Type: string,
     FundingSource: string,

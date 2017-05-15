@@ -11,14 +11,14 @@ export class DataService {
   constructor(private _http: Http) { }
 
   getServices(): Observable<IService[]> {
-    return this._http.get(this._servicesUrl+'/api/Entries')
+    return this._http.get(this._servicesUrl+'/api/Entities')
         .map((response: Response) => <IService[]>response.json())
         .do(data => console.log('All: ' +  JSON.stringify(data)))
         .catch(this.handleError);
   }
 
   getService(id: number): Observable<IService> {
-    return this._http.get(this._servicesUrl+'/api/Entries/'+id)
+    return this._http.get(this._servicesUrl+'/api/Entities/'+id)
         .map((response: Response) => <IService>response.json())
         .do(data => console.log( JSON.stringify(data)))
         .catch(this.handleError);
