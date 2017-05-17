@@ -5,3 +5,13 @@
 .but-success {
   background-color:#18bc9c;color:white;
 }
+
+.table-header-color{
+  background-color:lightsteelblue;
+}
+
+.table-header-text-centered{
+  font-weight:bold;
+  width:100%;
+  text-align:center;
+}

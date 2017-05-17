@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IService } from "app/iservice";
 
@@ -27,6 +27,22 @@ export class DataService {
     //   .map((services: IService[]) => services.find(b => b.ID === id))
     //   .do(data => console.log( JSON.stringify(data)))
     //   .catch(this.handleError);
+  }
+
+  postService(data: object): Observable<any>{
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this._http.post(this._servicesUrl+'/api/Entities/', JSON.stringify(data), {headers:headers})
+        .map(res => res.json())
+        .catch(this.handleError);
+  }
+
+  putService(id: number, data: object): Observable<any>{
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this._http.put(this._servicesUrl+'/api/Entities/' + id.toString(), JSON.stringify(data), {headers:headers})
+        .map(res => res.json())
+        .catch(this.handleError);
   }
 
   private handleError(error: any) {

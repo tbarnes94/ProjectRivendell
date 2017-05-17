@@ -7,7 +7,8 @@ import { IForecast } from "app/iforecast";
 
 @Component({
   selector: 'view-data',
-  templateUrl: './view-data.component.html'
+  templateUrl: './view-data.component.html',
+  styleUrls: ['./view-data.component.css']
 })
 export class ViewDataComponent implements OnInit {
   public pageTitle = 'Services';
@@ -156,5 +157,20 @@ export class ViewDataComponent implements OnInit {
     console.log(buttonName+" "+this.buttonIndex+" was pressed.");
     this.buttonBool = !this.buttonBool;
   }
-
+  post():void{
+    this._dataService.postService({"description":"lol"})
+      .subscribe(result => {
+        console.log(JSON.stringify(result));
+      });
+  }
+  put():void{
+    this._dataService.putService(17, {
+      "description":"lol",
+      "entityId":17,
+      "ChangeReason":".",
+      "Alias":"Guo"
+    }).subscribe(result => {
+        console.log(JSON.stringify(result));
+      });
+  }
 }
