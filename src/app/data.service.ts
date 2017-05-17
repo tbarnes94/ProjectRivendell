@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { IService } from "app/iservice";
+import { Entity } from "app/Entity";
 
 @Injectable()
 export class DataService {
@@ -10,23 +10,18 @@ export class DataService {
 
   constructor(private _http: Http) { }
 
-  getServices(): Observable<IService[]> {
+  getEntities(): Observable<Entity[]> {
     return this._http.get(this._servicesUrl+'/api/Entities')
-        .map((response: Response) => <IService[]>response.json())
+        .map((response: Response) => <Entity[]>response.json())
         .do(data => console.log('All: ' +  JSON.stringify(data)))
         .catch(this.handleError);
   }
 
-  getService(id: number): Observable<IService> {
+  getEntity(id: number): Observable<Entity> {
     return this._http.get(this._servicesUrl+'/api/Entities/'+id)
-        .map((response: Response) => <IService>response.json())
+        .map((response: Response) => <Entity>response.json())
         .do(data => console.log( JSON.stringify(data)))
         .catch(this.handleError);
-    // DEPRECATED METHOD -> Matches ID Locally instead of calling API
-    // return this.getServices()
-    //   .map((services: IService[]) => services.find(b => b.ID === id))
-    //   .do(data => console.log( JSON.stringify(data)))
-    //   .catch(this.handleError);
   }
 
   postService(data: object): Observable<any>{

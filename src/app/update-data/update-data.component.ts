@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IService } from "app/iservice";
+import { Entity } from "app/Entity";
 import { DataService } from "app/data.service";
 import { MdSnackBar } from '@angular/material';
 
@@ -17,7 +17,7 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   public forecastIndex: number;
 
   // Objects
-  public service: IService;
+  public entity: Entity;
   public sub: Subscription;
   public buttonBools: Array<boolean>;
 
@@ -71,8 +71,8 @@ export class UpdateDataComponent implements OnInit, OnDestroy {
   }
 
   getService(id: number): void {
-    this._dataService.getService(id).subscribe(
-      service => this.service = service,
+    this._dataService.getEntity(id).subscribe(
+      service => this.entity = service,
       error => this.updateMessage(<any>error, 'Error'));
   }
 

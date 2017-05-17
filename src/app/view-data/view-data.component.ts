@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'app/data.service';
 import { MdSnackBar, MdDialog } from '@angular/material';
-import { IService } from 'app/iservice';
+import { Entity } from 'app/Entity';
 import { UpdateDataComponent } from 'app/update-data/update-data.component';
 import { IForecast } from "app/iforecast";
 
@@ -12,7 +12,7 @@ import { IForecast } from "app/iforecast";
 })
 export class ViewDataComponent implements OnInit {
   public pageTitle = 'Services';
-  public services: Array<IService>;
+  public entities: Array<Entity>;
   public infoMessage = '';
   public buttonBool = false;
   private buttonIndex = 0;
@@ -23,9 +23,9 @@ export class ViewDataComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._dataService.getServices()
+    this._dataService.getEntities()
         .subscribe(
-        services => this.services = services,
+        entities => this.entities = entities,
         error => this.infoMessage = <any>error);
   }
 
