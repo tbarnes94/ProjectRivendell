@@ -1,4 +1,4 @@
-import { IForecast } from "app/iforecast";
+import { Forecast } from "app/Forecast";
 import { Observable } from "rxjs/Observable";
 
 export class Entity {
@@ -28,5 +28,5 @@ export class Entity {
     OpName: string;
     SalesStage: string;
     DueDate: string;
-    Forecasts: Observable<IForecast[]>
+    Forecasts: Observable<Forecast[]>
 }
