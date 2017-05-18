@@ -1,0 +1,155 @@
+{{diagnostic}}
+<form (ngSubmit)="onSubmit(); entityForm.reset();" #entityForm = "ngForm">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#management">Management</a></li>
+        <li><a data-toggle="tab" href="#account">Account Info</a></li>
+        <li><a data-toggle="tab" href="#finance">Financial Details</a></li>
+        <li><a data-toggle="tab" href="#decrement">Decrement</a></li>
+        <li><a data-toggle="tab" href="#thoughts">Thoughts</a></li>
+    </ul>
+    
+    <div class="tab-content">
+        <div id="management" class="tab-pane fade in active">
+            <br>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="serviceoffice" class="control-label">Service Office</label>
+                    <input type="text" class="form-control" id="serviceoffice" placeholder="Service Office" required [(ngModel)]="model.ServiceOffice" name="ServiceOffice">
+                </div>
+                <div class="form-group">
+                    <label for="spl" class="control-label">SPL</label>
+                    <input type="text" class="form-control" id="spl" placeholder="SPL" required [(ngModel)]="model.SPL" name="SPL">
+                </div>
+                <div class="form-group">
+                    <label for="dmm" class="control-label">DMM</label>
+                    <input type="text" class="form-control" id="dmm" placeholder="DMM" required [(ngModel)]="model.DMM" name="DMM">
+                </div>
+                <div class="form-group">
+                    <label for="em_ade" class="control-label">Delivery Manager</label>
+                    <input type="text" class="form-control" id="delivery_manager" placeholder="Delivery Manager" required [(ngModel)]="model.DeliveryManager" name="DeliveryManager">
+                </div>
+                <div class="form-group">
+                    <label for="se" class="control-label">SE</label>
+                    <input type="text" class="form-control" id="se" placeholder="SE" required [(ngModel)]="model.SE" name="SE">
+                </div>
+                <div class="form-group">
+                    <label for="salesmanager" class="control-label">Sales Manager</label>
+                    <input type="text" class="form-control" id="sm" placeholder="Sales Manager" required [(ngModel)]="model.SalesManager" name="SM">
+                </div>
+                <div class="form-group">
+                    <label for="ATU" class="control-label">ATU</label>
+                    <input type="text" class="form-control" id="atu" placeholder="ATU" required [(ngModel)]="model.ATU" name="ATU">
+                </div>
+            </div>
+        </div>
+
+        <div id="account" class="tab-pane fade">
+            <div class="col-md-10">
+                <br>
+                <div class="form-group">
+                    <label for="se" class="control-label">Account Name</label>
+                    <input type="text" class="form-control" id="account_name" placeholder="Account Name" required [(ngModel)]="model.AccountName" name="accountname">
+                </div>
+                <div class="form-group">
+                    <label for="segment" class="control-label">Segment</label>
+                    <input type="text" class="form-control" id="segment" placeholder="Segment" required [(ngModel)]="model.Segment" name="Segment">
+                </div>
+                <div class="form-group">
+                    <label for="tpid" class="control-label">TPID</label>
+                    <input type="number" class="form-control" id="tpid" placeholder="TPID" required [(ngModel)]="model.TPID" name="TPID">
+                </div>
+                <div class="form-group">
+                    <label for="cpcode" class="control-label">CPCode</label>
+                    <input type="text" class="form-control" id="cpcode" placeholder="CPCode" required [(ngModel)]="model.CP_Code" name="CP_code">
+                </div>
+                <div class="form-group">
+                    <label for="gsx_id" class="control-label">CRM Id</label>                    
+                    <input type="number" class="form-control" id="gsx_id" placeholder="CRM id" required [(ngModel)]="model.CRM_ID" name="crm">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+                    <input type="text" class="form-control" id="description" placeholder="Description" required [(ngModel)]="model.Description" name="Description">
+                </div>
+                <div class="form-group">
+                    <label for="opName" class="control-label">Opportunity Name</label>
+                    <input type="text" class="form-control" id="opName" placeholder="opportunity name" required [(ngModel)]="model.OpName" name="OpName">
+                </div>
+                <div class="form-group">
+                    <label for="sales_stage" class="control-label">Sales Stage</label>
+                    <input type="text" class="form-control" id="sales_stage" placeholder="sales stage" required [(ngModel)]="model.SalesStage" name="SalesStage">
+                </div>
+                <div class="form-group">
+                    <label for="duedate" class="control-label">Due Date</label>
+                    <input type="date" class="form-control" id="due_date" required [(ngModel)]="model.DueDate" name="DueDate">                    
+                </div>
+            </div>
+        </div>
+
+        <div id="finance" class="tab-pane fade">
+            <br>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="ext_int" class="control-label">Internal or External</label>
+                    <select class="form-control" id="intext"
+                                required
+                                [(ngModel)]="model.External" name="external">
+                            <option [ngValue] = "false"> Internal </option>
+                            <option [ngValue] = "true"> External </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="funding_source" class="control-label">Funding Source</label>
+                    <input type="text" class="form-control" id="funding_source" placeholder="Funding Source" required [(ngModel)]="model.FundingSource" name="FundingSource">
+                </div>
+                <div class="form-group">
+                    <label for="engagement_type" class="control-label">Engagement Type</label>                    
+                    <input type="text" class="form-control" id="engagement_type" placeholder="Engagement Type" required [(ngModel)]="model.EngagementType" name="engagement_type">
+                </div>
+                <div class="form-group">
+                    <label for="likelihood" class="control-label">Likelihood</label>                    
+                    <select class="form-control col-sm-10" id="likelihood"
+                            required
+                            [(ngModel)]="model.Likelihood" name="likelihood">
+                        <option *ngFor="let like of likelihoods" [value]="like">{{like}}</option>
+                    </select>                       
+                </div>
+                <div class="form-group">
+                    <label for="contract_value" class="control-label">Contract Value</label>
+                    <input type="number" class="form-control" id="contract_value" placeholder="Contract Value" required [(ngModel)]="model.ContractValue" name="CV">                    
+                </div>
+            </div>
+        </div>
+
+        <div id="decrement" class="tab-pane fade">
+            <br>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="decrement_amount" class="control-label">Decrement Amount</label>
+                    <input type="number" class="form-control" id="decrement_amount" placeholder="Decrement Amount" required [(ngModel)]="model.DecrementAmount" name="DecrementAmount">                    
+                </div>
+                <div class="form-group">
+                    <label for="decrement_month" class="control-label">Decrement Month</label>
+                    <input type="number" class="form-control" id="decrement_month" placeholder="Decrement Month" required [(ngModel)]="model.DecrementMonth" name="DecrementMonth">
+                </div>
+                <div class="form-group">
+                    <label for="decrement_reason" class="control-label">Decrement Reason</label>
+                    <input type="text" class="form-control" id="decrement_reason" placeholder="Decrement Reason" required [(ngModel)]="model.DecrementReason" name="DecrementReason">                    
+                </div>
+            </div>
+        </div>
+
+        <div id="thoughts" class="tab-pane fade">
+            <br>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="comments" class="control-label">Comments</label>
+                    <textarea class="form-control" id="comments" placeholder="Comments.." rows=3 required [(ngModel)]="model.Comments" name="comments"></textarea>                    
+                </div>
+            </div>
+            <div class="form-group" style="float:right;">                
+                <button type="submit" id="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
