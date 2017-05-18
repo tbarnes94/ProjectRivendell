@@ -3,30 +3,33 @@ import { Observable } from "rxjs/Observable";
 
 export class Entity {
     EntityId: number;
-    ServiceOffice: string;
-    SE: string;
-    SPL: string;
-    DMM: string;
-    DeliveryManager: string;
-    TPID: number;
-    CP_Code: string;
-    Segment: string;
-    AccountName: string;
-    CRM_ID: string;
-    External: boolean;
-    Likelihood: string;
-    EngagementType: string;
-    FundingSource: string;
-    Description: string;
-    Comments: string;
-    ContractValue: number;
-    DecrementAmount: number;
-    DecrementMonth: number;
-    DecrementReason: string;
-    SalesManager: string;
-    ATU: string;
-    OpName: string;
-    SalesStage: string;
-    DueDate: string;
     Forecasts: Observable<Forecast[]>
+
+    constructor(
+        public ServiceOffice: string,
+        public SE: string,
+        public SPL: string,
+        public DMM: string,
+        public DeliveryManager: string,
+        public TPID: number,
+        public CP_Code: string,
+        public Segment: string,
+        public AccountName: string,
+        public CRM_ID: string,
+        public External: boolean,
+        public Likelihood: string,
+        public EngagementType: string,
+        public FundingSource: string,
+        public Description: string,
+        public Comments: string,
+        public ContractValue: number,
+        public DecrementAmount: number,
+        public DecrementMonth: number,
+        public DecrementReason: string,
+        public SalesManager: string,
+        public ATU: string,
+        public OpName: string,
+        public SalesStage: string,
+        public DueDate: string,
+    ){}
 }
