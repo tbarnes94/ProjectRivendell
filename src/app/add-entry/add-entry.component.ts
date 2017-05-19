@@ -5,7 +5,7 @@ import { DataService } from 'app/data.service'
 
 @Component({
   selector: 'app-add-entry',
-  templateUrl: './add-entry.componenttwo.html',
+  templateUrl: './add-entry.component.html',
   styleUrls: ['./add-entry.component.css']
 })
 export class AddEntryComponent{
