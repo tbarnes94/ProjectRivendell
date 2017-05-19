@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 
 export class Entity {
     EntityId: number;
-    Forecasts: Observable<Forecast[]>;
+    Forecasts: Forecast[];
     ServiceOffice: string;
     SE: string;
     SPL: string;

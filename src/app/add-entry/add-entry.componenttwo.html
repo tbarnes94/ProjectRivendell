@@ -103,21 +103,60 @@
                     <input type="text" class="form-control" id="funding_source" placeholder="Funding Source" required [(ngModel)]="model.FundingSource" name="FundingSource">
                 </div>
                 <div class="form-group">
-                    <label for="engagement_type" class="control-label">Engagement Type</label>                    
+                    <label for="engagement_type" class="control-label">Engagement Type</label>
                     <input type="text" class="form-control" id="engagement_type" placeholder="Engagement Type" required [(ngModel)]="model.EngagementType" name="engagement_type">
                 </div>
                 <div class="form-group">
-                    <label for="likelihood" class="control-label">Likelihood</label>                    
+                    <label for="likelihood" class="control-label">Likelihood</label>
                     <select class="form-control col-sm-10" id="likelihood"
                             required
                             [(ngModel)]="model.Likelihood" name="likelihood">
                         <option *ngFor="let like of likelihoods" [value]="like">{{like}}</option>
-                    </select>                       
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="contract_value" class="control-label">Contract Value</label>
                     <input type="number" class="form-control" id="contract_value" placeholder="Contract Value" required [(ngModel)]="model.ContractValue" name="CV">                    
                 </div>
+
+                <br>
+
+                <div id="forecastTimeSelection" *ngIf="forecastPrepared == false">
+                    <div class="col-md-5">
+                        <label for="startdate" class="col-sm-4 control-label">Project Start Date</label>
+                        <div class="col-sm-6 input-group date">
+                            <input type="date" class="form-control" id="startdate" placeholder="MM/DD/YYYY" [(ngModel)]="startDateString" name="startdate">                        
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="enddate" class="col-sm-4 control-label">Project End Date</label>
+                        <div class="col-sm-6 input-group date">
+                            <input type="date" class="form-control" id="enddate" placeholder="MM/DD/YYYY" [(ngModel)]="endDateString" name="enddate">                        
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="float:right;">
+                        <button type="button" class="btn btn-success" (click)="createForecastTable()" [disabled]="startDateString==null || endDateString==null">Next</button>
+                    </div>
+                </div>
+                
+                <div id="forecastGraphDiv" style="text-align:center" *ngIf="forecastPrepared == true">                                    
+                    <table align="center" id="forecastGraph">
+                        <tr id="forecastGraphHeaders">
+                            <th *ngFor="let cast of forecasts">{{months[cast.Month-1]}}, {{cast.Year}}</th>
+                        </tr>
+                        <tr id="forecastGraphValues">
+                            <td *ngFor="let cast of forecasts">
+                                <input type="number" class="form-control" [(ngModel)]="cast.Value" name="value">
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="button" class="btn btn-success" (click)="resetForecast()">Reset Forecast</button>
+                </div>
+
+                
+
             </div>
         </div>
 
@@ -141,13 +180,13 @@
 
         <div id="thoughts" class="tab-pane fade">
             <br>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label for="comments" class="control-label">Comments</label>
                     <textarea class="form-control" id="comments" placeholder="Comments.." rows=3 required [(ngModel)]="model.Comments" name="comments"></textarea>                    
                 </div>
             </div>
-            <div class="form-group" style="float:right;">                
+            <div class="form-group" style="float:right;">
                 <button type="submit" id="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
