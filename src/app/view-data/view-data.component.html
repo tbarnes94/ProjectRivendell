@@ -79,6 +79,10 @@
       <th onclick="sortTable(25)" class="table-header-color">
         <button md-button class="table-header-color table-header-text-centered">DueDate</button>
       </th>
+      <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]">
+        {{months[today.getMonth() + number]}}, {{today.getFullYear()}}
+      </th>
+
   </thead>
   <tbody>
     <tr class="sortme" *ngFor='let entity of entities'>
@@ -134,7 +138,7 @@
         <button md-button style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
       </td>
 
-      <td *ngIf="entity.Likelihood == 'Med'" class="sortablerow" style="width:100%;background-color:#ffbb33">
+      <td *ngIf="entity.Likelihood == 'Medium'" class="sortablerow" style="width:100%;background-color:#ffbb33">
         <!-- Yellow Button when Likelihood = 'Med' -->
         <button md-button style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
       </td>
@@ -146,7 +150,7 @@
 
       <td *ngIf="entity.Likelihood == null" class="sortablerow" style="width:100%;">
         <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
+        <button md-button (click)="buttonWasPressed('Likelihood');"> </button>
       </td>
 
       <!-- EngagementType -->
@@ -188,6 +192,11 @@
       <!-- DueDate -->
       <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DueDate');">{{ entity.DueDate | date:'EEE - MMM d - y h:mm:ss a Z' }}</button></td>
 
+      <!-- Forecasts -->
+      <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]">
+        {{findValueWithMonthOffset(entity, number)}}
+      </td>
+      
       <!--<td class="sortablerow" style="width:100%;background-color:black;">
         <table border="1" frame=vsides *ngIf="entity.Forecasts && entity.Forecasts.length">
           <thead>

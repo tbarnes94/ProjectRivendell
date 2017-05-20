@@ -1,3 +1,10 @@
+/* 
+ * Add extra form verification.
+ * Figure out how to distinguish between required and optional fields
+ * Add confirmation when form is submitted
+ * Route to view-data page.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Entity } from 'app/Entity';
 import { Forecast } from 'app/Forecast';
@@ -50,7 +57,7 @@ export class AddEntryComponent{
     // Prepare Forecasts
     for(var i = 0; i < numOfMonths; i++){
       var cast = new Forecast();
-      cast.Month = startDate.getMonth() + 1;
+      cast.Month = startDate.getMonth() + 1; // Because months are zero indexed in Javascript
       cast.Year = startDate.getFullYear();
       cast.Value = 0;
       this.forecasts.push(cast);

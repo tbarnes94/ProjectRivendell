@@ -165,15 +165,15 @@
             <div class="col-md-10">
                 <div class="form-group">
                     <label for="decrement_amount" class="control-label">Decrement Amount</label>
-                    <input type="number" class="form-control" id="decrement_amount" placeholder="Decrement Amount" required [(ngModel)]="model.DecrementAmount" name="DecrementAmount">                    
+                    <input type="number" class="form-control" id="decrement_amount" placeholder="Decrement Amount" [(ngModel)]="model.DecrementAmount" name="DecrementAmount">                    
                 </div>
                 <div class="form-group">
                     <label for="decrement_month" class="control-label">Decrement Month</label>
-                    <input type="number" class="form-control" id="decrement_month" placeholder="Decrement Month" required [(ngModel)]="model.DecrementMonth" name="DecrementMonth">
+                    <input type="number" class="form-control" id="decrement_month" placeholder="Decrement Month" [(ngModel)]="model.DecrementMonth" name="DecrementMonth">
                 </div>
                 <div class="form-group">
                     <label for="decrement_reason" class="control-label">Decrement Reason</label>
-                    <input type="text" class="form-control" id="decrement_reason" placeholder="Decrement Reason" required [(ngModel)]="model.DecrementReason" name="DecrementReason">                    
+                    <input type="text" class="form-control" id="decrement_reason" placeholder="Decrement Reason" [(ngModel)]="model.DecrementReason" name="DecrementReason">                    
                 </div>
             </div>
         </div>
@@ -183,11 +183,11 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="comments" class="control-label">Comments</label>
-                    <textarea class="form-control" id="comments" placeholder="Comments.." rows=3 required [(ngModel)]="model.Comments" name="comments"></textarea>                    
+                    <textarea class="form-control" id="comments" placeholder="Comments.." rows=3 [(ngModel)]="model.Comments" name="comments"></textarea>                    
                 </div>
             </div>
             <div class="form-group" style="float:right;">
-                <button type="submit" id="submit" class="btn btn-success">Submit</button>
+                <button type="submit" id="submit" class="btn btn-success" [disabled]="!entityForm.form.valid">Submit</button>
             </div>
         </div>
     </div>

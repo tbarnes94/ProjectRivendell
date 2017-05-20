@@ -17,6 +17,9 @@ export class ViewDataComponent implements OnInit {
   public buttonBool = false;
   private buttonIndex = 0;
   private forecastIndex = 0;
+  public today = new Date();
+
+  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   constructor(private _dataService: DataService,
               private _dialog: MdDialog) {
@@ -45,6 +48,14 @@ export class ViewDataComponent implements OnInit {
     this.buttonBool = false;
     this.buttonIndex = 0;
     this.forecastIndex = 0;
+  }
+
+  findValueWithMonthOffset(entity: Entity, offset: number): number {    
+    var forecast = entity.Forecasts.find(x => x.Month == this.today.getMonth()+offset+1 && x.Year == this.today.getFullYear());
+    if (forecast == null){
+      return 0;
+    }
+    return forecast.Value;
   }
 
   updateMessage(message: string): void {
@@ -156,12 +167,6 @@ export class ViewDataComponent implements OnInit {
     }
     console.log(buttonName+" "+this.buttonIndex+" was pressed.");
     this.buttonBool = !this.buttonBool;
-  }
-  post():void{
-    this._dataService.postService({"description":"lol"})
-      .subscribe(result => {
-        console.log(JSON.stringify(result));
-      });
   }
   put():void{
     this._dataService.putService(17, {
