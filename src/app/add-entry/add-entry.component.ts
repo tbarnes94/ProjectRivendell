@@ -8,7 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Entity } from 'app/Entity';
 import { Forecast } from 'app/Forecast';
-import { DataService } from 'app/data.service'
+import { DataService } from 'app/data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -44,7 +44,6 @@ export class AddEntryComponent{
     this.resetForecast();
     this._dataService.postService(this.model)
     .subscribe(result => {
-      console.log(JSON.stringify(result));
       this.router.navigate(['view-data']);
     });
   }

@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Entity } from 'app/entity';
 import { Forecast } from 'app/forecast';
 import { ChangeEntity } from 'app/changeentity';
+import { DataService } from 'app/data.service';
 
 @Component({
     selector: 'confirm-dialog',
     templateUrl: '../add-entry/add-entry.component.html',
+    providers: [DataService],
 })
 export class EditDataDialog implements OnInit{
     
@@ -45,10 +47,11 @@ export class EditDataDialog implements OnInit{
         change.Alias = this.alias;
         change.ChangeReason = this.changeReason;
         change.Entity = this.model;
-        console.log(JSON.stringify(change));
-        this.dialogRef.close();
+        this.dataService.putService(this.model.EntityId, change).subscribe(result=>{
+            this.dialogRef.close();
+        });
     }
 
-    constructor( public dialogRef: MdDialogRef<EditDataDialog>) {
+    constructor( public dialogRef: MdDialogRef<EditDataDialog>, private dataService: DataService) {
     }
 }
