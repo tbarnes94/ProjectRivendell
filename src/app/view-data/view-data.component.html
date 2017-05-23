@@ -1,218 +1,28 @@
 <script src="jquery.tabletoCSV.js"></script>
 
-
+<button (click)="openColumnDialog()">Hide/Show Columns</button>
 <table id="myTable2" border="1" *ngIf='entities && entities.length'>
   <thead>
     <tr>
-      <th onclick="sortTable(1)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">ServiceOffice</button>
-      </th>
-      <th onclick="sortTable(2)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">SE</button>
-      </th>
-      <th onclick="sortTable(3)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">SPL</button>
-      </th>
-      <th onclick="sortTable(4)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DMM</button>
-      </th>
-      <th onclick="sortTable(5)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DeliveryManager</button>
-      </th>
-      <th onclick="sortTable(6)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">TPID</button>
-      </th>
-      <th onclick="sortTable(7)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">CP Code</button>
-      </th>
-      <th onclick="sortTable(8)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">Segment</button>
-      </th>
-      <th onclick="sortTable(9)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">AccountName</button>
-      </th>
-      <th onclick="sortTable(10)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">CRM ID</button>
-      </th>
-      <th onclick="sortTable(11)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">Int/Ext</button>
-      </th>
-      <th onclick="sortTable(12)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">Likelihood</button>
-      </th>
-      <th onclick="sortTable(13)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">EngagementType</button>
-      </th>
-      <th onclick="sortTable(14)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">FundingSource</button>
-      </th>
-      <th onclick="sortTable(15)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">Description</button>
-      </th>
-      <th onclick="sortTable(16)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">Comments</button>
-      </th>
-      <th onclick="sortTable(17)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">ContractValue</button>
-      </th>
-      <th onclick="sortTable(18)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DecrementAmount</button>
-      </th>
-      <th onclick="sortTable(19)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DecrementMonth</button>
-      </th>
-      <th onclick="sortTable(20)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DecrementReason</button>
-      </th>
-      <th onclick="sortTable(21)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">SalesManager</button>
-      </th>
-      <th onclick="sortTable(22)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">ATU</button>
-      </th>
-      <th onclick="sortTable(23)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">OpName</button>
-      </th>
-      <th onclick="sortTable(24)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">SalesStage</button>
-      </th>
-      <th onclick="sortTable(25)" class="table-header-color">
-        <button md-button class="table-header-color table-header-text-centered">DueDate</button>
-      </th>
+      <ng-container *ngFor="let field of entityFields">
+        <th  *ngIf="hiddenFields[field] != true" class="table-header-color text-centered">
+          <button md-button class="table-header-color text-centered">{{field}}</button>
+        </th>
+      </ng-container>
       <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="table-header-color">
-        {{months[today.getMonth() + number]}}, {{today.getFullYear()}}
+        <button md-button class="table-header-color text-centered">{{months[today.getMonth() + number]}}, {{today.getFullYear()}}</button>
       </th>
-
+    </tr>
   </thead>
   <tbody>
-    <tr class="sortme" *ngFor='let entity of entities'>
-      
-      <!-- ServiceOffice -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ServiceOffice');">{{ entity.ServiceOffice }}</button></td>
-      
-      <!-- SE -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SE');">{{ entity.SE }}</button></td>
-
-      <!-- SPL -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SPL');">{{ entity.SPL }}</button></td>
-     
-      <!-- DMM -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DMM');">{{ entity.DMM }}</button></td>
-
-      <!-- DeliveryManager -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DeliveryManager');">{{ entity.DeliveryManager }}</button></td>
-
-      <!-- TPID -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('TPID');">{{ entity.TPID | number:'1.0-0' }}</button></td>
-
-      <!-- CP_Code -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('CP_Code');">{{ entity.CP_Code }}</button></td>
-
-      <!-- Segment -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Segment');">{{ entity.Segment }}</button></td>
-
-      <!-- AccountName -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('AccountName');">{{ entity.AccountName }}</button></td>
-
-      <!-- CRM ID -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('CRM_ID');">{{ entity.CRM_ID }}</button></td>
-
-      <!-- Internal -->
-      <td *ngIf="entity.External == false" class="sortablerow" style="width:100%;">
-        <button md-button (click)="buttonWasPressed('int_ext');">Internal</button>
+    <tr *ngFor='let entity of entities'>
+      <ng-container *ngFor="let field of entityFields">
+        <td *ngIf="hiddenFields[field] != true" class="text-centered">{{ entity[field]}}</td>
+      </ng-container>
+        <!-- Forecasts -->
+      <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="text-centered">
+        ${{findValueWithMonthOffset(entity, number)}}
       </td>
-
-      <!-- External -->
-      <td *ngIf="entity.External == true" class="sortablerow" style="width:100%;">
-        <button md-button (click)="buttonWasPressed('int_ext');">External</button>
-      </td>
-
-      <!-- IntExt null case (should never show up) -->
-      <td *ngIf="entity.External == null" class="sortablerow" style="width:100%;">
-        <button md-button (click)="buttonWasPressed('int_ext');"></button>
-      </td>
-
-      <!-- Likelihood -->
-      <td *ngIf="entity.Likelihood == 'High'" class="sortablerow" style="width:100%;background-color:#e74c3c">
-        <!-- Red Button when Likelihood = 'High' -->
-        <button md-button style="width:100%;background-color:#e74c3c;color:white;" (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
-      </td>
-
-      <td *ngIf="entity.Likelihood == 'Medium'" class="sortablerow" style="width:100%;background-color:#ffbb33">
-        <!-- Yellow Button when Likelihood = 'Med' -->
-        <button md-button style="width:100%;background-color:#ffbb33;color:white;" (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
-      </td>
-
-      <td *ngIf="entity.Likelihood == 'Low'" class="sortablerow" style="width:100%;background-color:#18bc9c">
-        <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button style="width:100%;background-color:#18bc9c;color:white;" (click)="buttonWasPressed('Likelihood');">{{entity.Likelihood}}</button>
-      </td>
-
-      <td *ngIf="entity.Likelihood == null" class="sortablerow" style="width:100%;">
-        <!-- Green Button when Likelihood = 'Low' -->
-        <button md-button (click)="buttonWasPressed('Likelihood');"> </button>
-      </td>
-
-      <!-- EngagementType -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('EngagementType');">{{ entity.EngagementType }}</button></td>
-
-      <!-- FundingSource -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('FundingSource');">{{ entity.FundingSource }}</button></td>
-
-      <!-- Description -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Description');">{{ entity.Description }}</button></td>
-
-      <!-- Comments -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('Comments');">{{ entity.Comments }}</button></td>
-
-      <!-- ContractValue -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ContractValue');">{{ entity.ContractValue | number }}</button></td>
-
-      <!-- DecrementAmount -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementAmount');">{{ entity.DecrementAmount | number }}</button></td>
-
-      <!-- DecrementMonth -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementMonth');">{{ entity.DecrementMonth | number:'1.0-0' }}</button></td>
-
-      <!-- DecrementReason -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DecrementReason');">{{ entity.DecrementReason }}</button></td>
-
-      <!-- SalesManager -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesManager');">{{ entity.SalesManager }}</button></td>
-
-      <!-- ATU -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('ATU');">{{ entity.ATU }}</button></td>
-
-      <!-- OpName -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('OpName');">{{ entity.OpName }}</button></td>
-
-      <!-- SalesStage -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('SalesStage');">{{ entity.SalesStage }}</button></td>
-
-      <!-- DueDate -->
-      <td class="sortablerow"><button style="width:100%" md-button (click)="buttonWasPressed('DueDate');">{{ entity.DueDate | date:'EEE - MMM d - y h:mm:ss a Z' }}</button></td>
-
-      <!-- Forecasts -->
-      <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]">
-        {{findValueWithMonthOffset(entity, number)}}
-      </td>
-       
-      <!--<td class="sortablerow" style="width:100%;background-color:black;">
-        <table border="1" frame=vsides *ngIf="entity.Forecasts && entity.Forecasts.length">
-          <thead>
-            <tr>
-              <td *ngFor="let forecast of entity.Forecasts" style="width:100%;background-color:black;">
-                <button md-button style="width:100%;background-color:black;" (click)="forecastButtonWasPressed(forecast.ID);buttonWasPressed('Forecasts');openDialog(entity.ID)"><span style="font-weight:bold;color:white;"><span style="color:#ffbb33;">{{ forecast.Month | month }}</span> | </span><span style="font-weight:bold;color:#18bc9c;">${{ forecast.Value | number }}</span></button>
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-         
-        </table>
-        <div *ngIf="!(entity.Forecasts && entity.Forecasts.length)">TODO: Add Forecasts?</div>
-      </td>-->
-    <!--</tr>-->
   </tbody>
 </table>
 

@@ -13,14 +13,12 @@ export class DataService {
   getEntities(): Observable<Entity[]> {
     return this._http.get(this._servicesUrl+'/api/Entities')
         .map((response: Response) => <Entity[]>response.json())
-        .do(data => console.log('All: ' +  JSON.stringify(data)))
         .catch(this.handleError);
   }
 
   getEntity(id: number): Observable<Entity> {
     return this._http.get(this._servicesUrl+'/api/Entities/'+id)
         .map((response: Response) => <Entity>response.json())
-        .do(data => console.log( JSON.stringify(data)))
         .catch(this.handleError);
   }
 

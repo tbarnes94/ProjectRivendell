@@ -1,4 +1,4 @@
-<div *ngFor="let field in fields">
-    <input type="checkbox" [checked]="toggleFields[field]" (change)="toggleFields[field] = !toggleFields[field]"><br>
+<div *ngFor="let field of fields">
+    <input type="checkbox" [(ngModel)]="toggleFields[field]">{{field}}<br>
 </div>
 <button type="button" (click)="dialogRef.close()">Close</button>

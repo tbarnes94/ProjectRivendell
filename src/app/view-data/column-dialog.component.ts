@@ -1,6 +1,7 @@
 import { MdDialogRef} from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
     selector: 'confirm-dialog',
     templateUrl: './column-dialog.component.html',

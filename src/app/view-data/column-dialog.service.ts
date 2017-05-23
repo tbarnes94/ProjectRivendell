@@ -8,12 +8,10 @@ export class ColumnDialogService {
 
     constructor(private dialog: MdDialog) { }
 
-    public confirm(): Observable<boolean> {
-
+    public confirm(displayedFields: Object): Observable<boolean> {
         let dialogRef: MdDialogRef<ColumnDialog>;
-        dialogRef.componentInstance.toggleFields = {"test" : true};
         dialogRef = this.dialog.open(ColumnDialog);
-
+        dialogRef.componentInstance.toggleFields = displayedFields;
         return dialogRef.afterClosed();
     }
 }

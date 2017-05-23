@@ -10,13 +10,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 // My Component Imports
 import { AppComponent } from './app.component';
 import { ViewDataComponent } from './view-data/view-data.component';
-import { UpdateDataComponent } from './update-data/update-data.component';
 import { routing } from "app/app.routing";
 import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { AddEntryComponent } from './add-entry/add-entry.component';
 import { MonthPipe } from './month.pipe';
 import { EditDataService } from './edit-data/edit-data.service';
 import { EditDataDialog }   from './edit-data/edit-data.component';
+import { ColumnDialog } from './view-data/column-dialog.component';
+import { ColumnDialogService } from './view-data/column-dialog.service';
 
 // My Service Imports
 
@@ -24,11 +25,11 @@ import { EditDataDialog }   from './edit-data/edit-data.component';
   declarations: [
     AppComponent,
     ViewDataComponent,
-    UpdateDataComponent,
     NavButtonsComponent,
     AddEntryComponent,
     MonthPipe,
-    EditDataDialog
+    EditDataDialog,
+    ColumnDialog
   ],
   imports: [
     BrowserModule,
@@ -40,10 +41,11 @@ import { EditDataDialog }   from './edit-data/edit-data.component';
     ReactiveFormsModule
   ],
   exports: [
-    EditDataDialog
+    EditDataDialog,
+    ColumnDialog
   ],
   providers: [],
-  entryComponents: [UpdateDataComponent, EditDataDialog],
+  entryComponents: [EditDataDialog, ColumnDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
