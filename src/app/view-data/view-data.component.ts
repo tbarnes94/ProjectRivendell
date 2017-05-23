@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'app/data.service';
 import { MdSnackBar, MdDialog } from '@angular/material';
 import { Entity } from 'app/Entity';
-import { UpdateDataComponent } from 'app/update-data/update-data.component';
 import { Forecast } from "app/Forecast";
 import { EditDataService } from "app/edit-data/edit-data.service"
 
