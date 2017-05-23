@@ -79,7 +79,7 @@
       <th onclick="sortTable(25)" class="table-header-color">
         <button md-button class="table-header-color table-header-text-centered">DueDate</button>
       </th>
-      <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]">
+      <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="table-header-color">
         {{months[today.getMonth() + number]}}, {{today.getFullYear()}}
       </th>
 
@@ -196,7 +196,7 @@
       <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]">
         {{findValueWithMonthOffset(entity, number)}}
       </td>
-      
+       
       <!--<td class="sortablerow" style="width:100%;background-color:black;">
         <table border="1" frame=vsides *ngIf="entity.Forecasts && entity.Forecasts.length">
           <thead>
@@ -215,3 +215,5 @@
     <!--</tr>-->
   </tbody>
 </table>
+
+<button (click)="openDialog(40);">lol</button>

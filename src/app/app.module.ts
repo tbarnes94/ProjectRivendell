@@ -15,6 +15,8 @@ import { routing } from "app/app.routing";
 import { NavButtonsComponent } from './nav-buttons/nav-buttons.component';
 import { AddEntryComponent } from './add-entry/add-entry.component';
 import { MonthPipe } from './month.pipe';
+import { EditDataService } from './edit-data/edit-data.service';
+import { EditDataDialog }   from './edit-data/edit-data.component';
 
 // My Service Imports
 
@@ -25,7 +27,8 @@ import { MonthPipe } from './month.pipe';
     UpdateDataComponent,
     NavButtonsComponent,
     AddEntryComponent,
-    MonthPipe
+    MonthPipe,
+    EditDataDialog
   ],
   imports: [
     BrowserModule,
@@ -36,8 +39,11 @@ import { MonthPipe } from './month.pipe';
     routing,
     ReactiveFormsModule
   ],
+  exports: [
+    EditDataDialog
+  ],
   providers: [],
-  entryComponents: [UpdateDataComponent],
+  entryComponents: [UpdateDataComponent, EditDataDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

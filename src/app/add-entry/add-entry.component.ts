@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { Entity } from 'app/Entity';
 import { Forecast } from 'app/Forecast';
 import { DataService } from 'app/data.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-entry',
@@ -33,7 +34,7 @@ export class AddEntryComponent{
 
   model = new Entity();
 
-  constructor(private _dataService: DataService) {
+  constructor(private _dataService: DataService, public router: Router) {
   }
 
   onSubmit(){
@@ -44,6 +45,7 @@ export class AddEntryComponent{
     this._dataService.postService(this.model)
     .subscribe(result => {
       console.log(JSON.stringify(result));
+      this.router.navigate(['view-data']);
     });
   }
 
@@ -81,7 +83,4 @@ export class AddEntryComponent{
       return (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth() + 1;
     }
   }
-
-  get diagnostic() { return this.startDateString + this.endDateString; }
-
 }

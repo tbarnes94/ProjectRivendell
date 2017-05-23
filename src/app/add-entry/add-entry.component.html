@@ -1,4 +1,3 @@
-{{diagnostic}}
 <form (ngSubmit)="onSubmit(); entityForm.reset();" #entityForm = "ngForm">
 
     <ul class="nav nav-tabs">
@@ -12,7 +11,7 @@
     <div class="tab-content">
         <div id="management" class="tab-pane fade in active">
             <br>
-            <div class="col-md-10">
+            <div class="col-xs-6">
                 <div class="form-group">
                     <label for="serviceoffice" class="control-label">Service Office</label>
                     <input type="text" class="form-control" id="serviceoffice" placeholder="Service Office" required [(ngModel)]="model.ServiceOffice" name="ServiceOffice">
@@ -29,6 +28,8 @@
                     <label for="em_ade" class="control-label">Delivery Manager</label>
                     <input type="text" class="form-control" id="delivery_manager" placeholder="Delivery Manager" required [(ngModel)]="model.DeliveryManager" name="DeliveryManager">
                 </div>
+            </div>
+            <div class="col-xs-6">
                 <div class="form-group">
                     <label for="se" class="control-label">SE</label>
                     <input type="text" class="form-control" id="se" placeholder="SE" required [(ngModel)]="model.SE" name="SE">
@@ -45,7 +46,7 @@
         </div>
 
         <div id="account" class="tab-pane fade">
-            <div class="col-md-10">
+            <div class="col-xs-6">
                 <br>
                 <div class="form-group">
                     <label for="se" class="control-label">Account Name</label>
@@ -67,6 +68,9 @@
                     <label for="gsx_id" class="control-label">CRM Id</label>                    
                     <input type="number" class="form-control" id="gsx_id" placeholder="CRM id" required [(ngModel)]="model.CRM_ID" name="crm">
                 </div>
+            </div>
+            <div class="col-xs-6">
+                <br>
                 <div class="form-group">
                     <label for="description" class="control-label">Description</label>
                     <input type="text" class="form-control" id="description" placeholder="Description" required [(ngModel)]="model.Description" name="Description">
@@ -81,7 +85,7 @@
                 </div>
                 <div class="form-group">
                     <label for="duedate" class="control-label">Due Date</label>
-                    <input type="date" class="form-control" id="due_date" required [(ngModel)]="model.DueDate" name="DueDate">                    
+                    <input type="date" class="form-control" id="due_date" required [ngModel]="model.DueDate| date:'yyyy-MM-dd'" (ngModelChange)="dt = $event" name="DueDate">                    
                 </div>
             </div>
         </div>
@@ -122,14 +126,14 @@
                 <br>
 
                 <div id="forecastTimeSelection" *ngIf="forecastPrepared == false">
-                    <div class="col-md-5">
+                    <div class="col-xs-5">
                         <label for="startdate" class="col-sm-4 control-label">Project Start Date</label>
                         <div class="col-sm-6 input-group date">
                             <input type="date" class="form-control" id="startdate" placeholder="MM/DD/YYYY" [(ngModel)]="startDateString" name="startdate">                        
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-xs-6">
                         <label for="enddate" class="col-sm-4 control-label">Project End Date</label>
                         <div class="col-sm-6 input-group date">
                             <input type="date" class="form-control" id="enddate" placeholder="MM/DD/YYYY" [(ngModel)]="endDateString" name="enddate">                        
@@ -154,9 +158,6 @@
                     </table>
                     <button type="button" class="btn btn-success" (click)="resetForecast()">Reset Forecast</button>
                 </div>
-
-                
-
             </div>
         </div>
 
@@ -180,6 +181,21 @@
 
         <div id="thoughts" class="tab-pane fade">
             <br>
+            <div *ngIf="editMode == true">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="alias" class="control-label">Alias</label>
+                        <input type="text" class="form-control" id="alias" placeholder="alias" required [(ngModel)]="alias" name="alias">                    
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="comments" class="control-label">Reason for change</label>
+                        <textarea class="form-control" id="changeReason" placeholder="Reason for change" rows=3 required [(ngModel)]="changeReason" name="reason"></textarea>                    
+                    </div>
+                </div>
+            </div>
+            
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="comments" class="control-label">Comments</label>
@@ -187,7 +203,7 @@
                 </div>
             </div>
             <div class="form-group" style="float:right;">
-                <button type="submit" id="submit" class="btn btn-success" [disabled]="!entityForm.form.valid">Submit</button>
+                <button type="button" id="submit" class="btn btn-success" [disabled]="!entityForm.form.valid" (click)="onSubmit()">Submit</button>
             </div>
         </div>
     </div>
