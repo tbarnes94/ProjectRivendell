@@ -1,0 +1,20 @@
+<table border="1">
+  <thead>
+    <tr>
+      <th *ngFor="let field of changelogFields" class="table-header-color text-centered bold">
+        <button md-button class="table-header-color text-centered">{{field}}</button>
+      </th>
+      <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="table-header-color bold">
+        <button md-button class="table-header-color text-centered">{{months[today.getMonth() + number]}}, {{today.getFullYear()}}</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let log of changelogs'>
+      <td *ngFor="let field of changelogFields" class="text-centered">{{log[field]}}</td>
+      <!-- Forecasts -->
+      <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="text-centered">
+        ${{findValueWithMonthOffset(log, number)}}
+      </td>
+  </tbody>
+</table>

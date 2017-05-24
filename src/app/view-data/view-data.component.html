@@ -1,7 +1,7 @@
 <script src="jquery.tabletoCSV.js"></script>
 
 <button (click)="openColumnDialog()">Hide/Show Columns</button>
-<table id="myTable2" border="1" *ngIf='entities && entities.length'>
+<table border="1" *ngIf='entities && entities.length'>
   <thead>
     <tr>
       <ng-container *ngFor="let field of entityFields">

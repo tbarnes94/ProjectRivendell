@@ -1,9 +1,11 @@
 import { Forecast } from "app/Forecast";
+import { ChangeLog } from "app/Changelog";
 import { Observable } from "rxjs/Observable";
 
 export class Entity {
     EntityId: number;
     Forecasts: Forecast[];
+    ChangeLogs: ChangeLog[];
     ServiceOffice: string;
     SE: string;
     SPL: string;

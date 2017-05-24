@@ -18,6 +18,7 @@ import { EditDataService } from './edit-data/edit-data.service';
 import { EditDataDialog }   from './edit-data/edit-data.component';
 import { ColumnDialog } from './view-data/column-dialog.component';
 import { ColumnDialogService } from './view-data/column-dialog.service';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 // My Service Imports
 
@@ -27,6 +28,7 @@ import { ColumnDialogService } from './view-data/column-dialog.service';
     ViewDataComponent,
     NavButtonsComponent,
     AddEntryComponent,
+    ChangelogComponent,
     MonthPipe,
     EditDataDialog,
     ColumnDialog
