@@ -11,7 +11,7 @@
         </th>
       </ng-container>
       <th *ngFor="let number of [0, 1, 2, 3, 4, 5]" class="table-header-color">
-        <button md-button class="table-header-color text-centered">{{getMonthWithOffset(number) | month}}, {{getYearWithMonthOffset(number)}}</button>
+        <button md-button class="table-header-color text-centered">{{getMonthWithOffset(number) | month}} {{getYearWithMonthOffset(number)}}</button>
       </th>
     </tr>
   </thead>
@@ -19,8 +19,7 @@
     <tr *ngFor='let entity of entities' (click)="openDialog(entity.EntityId)"> 
       <ng-container *ngFor="let field of entityFields">
         <td *ngIf="hiddenFields[field] != true" class="text-centered sortablerow">{{ entity[field]}}</td>
-      </ng-container>
-        <!-- Forecasts -->
+      </ng-container>        
       <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="text-centered">
         {{findValueWithMonthOffset(entity, number)}} 
       </td>

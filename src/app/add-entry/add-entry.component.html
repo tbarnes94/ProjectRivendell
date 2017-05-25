@@ -162,7 +162,7 @@
                 <div id="forecastGraphDiv" style="text-align:center">                                    
                     <table align="center" id="forecastGraph">
                         <tr id="forecastGraphHeaders">
-                            <th *ngFor="let cast of model.Forecasts">{{months[cast.Month-1]}}, {{cast.Year}}</th>
+                            <th *ngFor="let cast of model.Forecasts">{{cast.Month | month}}, {{cast.Year}}</th>
                         </tr>
                         <tr id="forecastGraphValues">
                             <td *ngFor="let cast of model.Forecasts; let in = index">

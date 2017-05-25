@@ -16,11 +16,14 @@ import { ColumnDialogService } from "./column-dialog.service"
 export class ViewDataComponent implements OnInit {
   public pageTitle = 'Services';
   public entities: Array<Entity>;
+
+  // not used... lol
   public infoMessage = '';
   public today = new Date();
 
-  entityFields=["ServiceOffice", "SE", "SPL", "DMM", "DeliveryManager", "TPID", "CP_Code", "Segment", "AccountName", "CRM_ID", "External", "Likelihood", "EngagementType", "FundingSource", "Description", "Comments", "ContractValue", "DecrementAmount", "DecrementMonth", "DecrementReason", "SalesManager", "ATU", "OpName", "SalesStage", "DueDate"]
-  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  // Fields to display in table
+  entityFields=["ServiceOffice", "SE", "SPL", "DMM", "DeliveryManager", "TPID", "CP_Code", "Segment", "AccountName", "CRM_ID", "External", "Likelihood", "EngagementType", "FundingSource", "Description", "Comments", "ContractValue", "DecrementAmount", "DecrementMonth", "DecrementReason", "SalesManager", "ATU", "OpName", "SalesStage", "DueDate"];
+  
   hiddenFields= {};
 
   constructor(private _dataService: DataService,
@@ -42,7 +45,7 @@ export class ViewDataComponent implements OnInit {
 
   /*
    * @number is the number of months to be added to the current month
-   * @Entity is obviously the entity which forecasts we're dealing with here
+   * @Entity is obviously the entity whose forecasts we're dealing with here
    * @returns the value of the forecast for that given month.
    */
   findValueWithMonthOffset(entity: Entity, offset: number): number {    
@@ -53,15 +56,25 @@ export class ViewDataComponent implements OnInit {
     return forecast.Value;
   }
   
-  public openDialog(id: number) {
+  /**
+   * Opens the edit modal up
+   * @param id is the entityId.
+   */
+  openDialog(id: number) {
     this.editDataService
       .confirm(this.entities, id)
   }
-
-  public openColumnDialog(){
+  /**
+   * Opens the dialog that allows you to pick which columns to hide
+   */
+  openColumnDialog(){
     this.columnDialogService.confirm(this.hiddenFields).subscribe();
   }
 
+    /**
+     * Simple function to find the month that is x months ahead of current month.
+     * @param x the integer to add to the current month.
+     */
     getMonthWithOffset(x: number): number {
         if((this.today.getMonth() + x) % 12 == 0){
             return 12;
@@ -69,6 +82,10 @@ export class ViewDataComponent implements OnInit {
         return (this.today.getMonth() + x) % 12;
     }
     
+    /**
+     * Simple function to find year that is x months ahead of current month/year
+     * @param x interger to add to current month.
+     */
     getYearWithMonthOffset(x: number): number {
         return this.today.getFullYear() + Math.floor((this.today.getMonth() + x - 1)/ 12);
     }

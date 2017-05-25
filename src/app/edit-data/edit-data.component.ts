@@ -11,16 +11,10 @@ import { DataService } from 'app/data.service';
     providers: [DataService],
 })
 export class EditDataDialog implements OnInit{
-    
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     likelihoods = ["Low", "Medium", "High"];
 
     changeReason: string;
     alias: string;
-    editMode = true;
-
-    // boolean used to determine which forecast divs to show
-    forecastPrepared: boolean;
 
     // entity is OG, model is the copy
     entities: Entity[];
@@ -35,7 +29,8 @@ export class EditDataDialog implements OnInit{
         var startDate = new Date();
         var numOfMonths = 5;
         startDate.setDate(15); // 5/31/.... + 1 month is 7/01. Setting the date 15 prevents the jump and is valid because date doesn't matter.        
-        // Prepare Forecasts
+        
+        // Prepare Forecasts adding any new forecasts if they don't exist
         for(var i = 0; i < numOfMonths; i++){
             if(this.model.Forecasts.find(x => x.Month == startDate.getMonth()+1 && x.Year == startDate.getFullYear()) == null){
                 var cast = new Forecast();

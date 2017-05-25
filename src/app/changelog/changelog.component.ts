@@ -15,8 +15,8 @@ import { Forecast } from 'app/forecast';
 
 export class ChangelogComponent implements OnInit{
 
+    // Fields to display in table
     changelogFields=["TimeOfChange", "Alias", "ChangeReason", "Comments", "ContractValue", "Likelihood"];
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   
     changelogs: ChangeLog[];
     today = new Date();
@@ -44,6 +44,11 @@ export class ChangelogComponent implements OnInit{
         private route: ActivatedRoute
   ) {}
 
+  /*
+   * @number is the number of months to be added to the current month
+   * @Entity is obviously the changelog whose forecasts we're dealing with here
+   * @returns the value of the forecast for that given month.
+   */
     findValueWithMonthOffset(log: ChangeLog, offset: number): number {    
         var forecast = log.ForecastHistories.find(x => x.Month == this.today.getMonth()+offset+1 && x.Year == this.today.getFullYear());
         if (forecast == null){
@@ -52,6 +57,10 @@ export class ChangelogComponent implements OnInit{
         return forecast.Value;
     }
 
+    /**
+     * Simple function to find the month that is x months ahead of current month.
+     * @param x the integer to add to the current month.
+     */
     getMonthWithOffset(x: number): number {
         if((this.today.getMonth() + x) % 12 == 0){
             return 12;
@@ -59,6 +68,10 @@ export class ChangelogComponent implements OnInit{
         return (this.today.getMonth() + x) % 12;
     }
     
+    /**
+     * Simple function to find year that is x months ahead of current month/year
+     * @param x interger to add to current month.
+     */
     getYearWithMonthOffset(x: number): number {
         return this.today.getFullYear() + Math.floor((this.today.getMonth() + x - 1)/ 12);
     }

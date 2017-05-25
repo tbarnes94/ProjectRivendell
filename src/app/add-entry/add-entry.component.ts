@@ -17,8 +17,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-entry.component.css']
 })
 export class AddEntryComponent implements OnInit{
-  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
   likelihoods = ["Low", "Medium", "High"];
   model = new Entity();
 
@@ -30,7 +28,7 @@ export class AddEntryComponent implements OnInit{
     var numOfMonths = 5;    
     startDate.setDate(15); // 5/31/.... + 1 month is 7/01. Setting the date 15 prevents the jump and is valid because date doesn't matter.
     this.model.Forecasts = [];
-    // Prepare Forecasts
+    // Prepare Forecasts for next 5 months
     for(var i = 0; i < numOfMonths; i++){
       var cast = new Forecast();
       cast.Month = startDate.getMonth() + 1; // Because months are zero indexed in Javascript
@@ -46,13 +44,5 @@ export class AddEntryComponent implements OnInit{
     .subscribe(result => {
       this.router.navigate(['view-data']);
     });
-  }
-
-  calculateMonths(start: Date, end: Date){
-    if(start > end){
-      throw("a fit");
-    } else {
-      return (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth() + 1;
-    }
   }
 }
