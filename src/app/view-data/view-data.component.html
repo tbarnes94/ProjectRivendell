@@ -1,29 +1,29 @@
 <script src="jquery.tabletoCSV.js"></script>
 
 <button (click)="openColumnDialog()">Hide/Show Columns</button>
+<button onclick="exportTableToCSV('Projected_Forecasts.csv')">Export to CSV</button>
 <table border="1" *ngIf='entities && entities.length'>
   <thead>
     <tr>
-      <ng-container *ngFor="let field of entityFields">
+      <ng-container *ngFor="let field of entityFields; let in = index">
         <th  *ngIf="hiddenFields[field] != true" class="table-header-color text-centered">
           <button md-button class="table-header-color text-centered">{{field}}</button>
         </th>
       </ng-container>
-      <th *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="table-header-color">
-        <button md-button class="table-header-color text-centered">{{months[today.getMonth() + number]}}, {{today.getFullYear()}}</button>
+      <th *ngFor="let number of [0, 1, 2, 3, 4, 5]" class="table-header-color">
+        <button md-button class="table-header-color text-centered">{{today.getMonth() + number | month}} {{today.getFullYear()}}</button>
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor='let entity of entities'>
+    <tr *ngFor='let entity of entities' (click)="openDialog(entity.EntityId)"> 
       <ng-container *ngFor="let field of entityFields">
-        <td *ngIf="hiddenFields[field] != true" class="text-centered">{{ entity[field]}}</td>
+        <td *ngIf="hiddenFields[field] != true" class="text-centered sortablerow">{{ entity[field]}}</td>
       </ng-container>
         <!-- Forecasts -->
       <td *ngFor="let number of [-1, 0, 1, 2, 3, 4]" class="text-centered">
-        ${{findValueWithMonthOffset(entity, number)}}
+        {{findValueWithMonthOffset(entity, number)}} 
       </td>
+    </tr>
   </tbody>
 </table>
-
-<button (click)="openDialog(40);">lol</button>

@@ -31,4 +31,5 @@ export class Entity {
     OpName: string;
     SalesStage: string;
     DueDate: string;
+
 }

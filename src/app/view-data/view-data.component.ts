@@ -17,11 +17,7 @@ export class ViewDataComponent implements OnInit {
   public pageTitle = 'Services';
   public entities: Array<Entity>;
   public infoMessage = '';
-  public buttonBool = false;
-  private buttonIndex = 0;
-  private forecastIndex = 0;
   public today = new Date();
-  public result: any;
 
   entityFields=["ServiceOffice", "SE", "SPL", "DMM", "DeliveryManager", "TPID", "CP_Code", "Segment", "AccountName", "CRM_ID", "External", "Likelihood", "EngagementType", "FundingSource", "Description", "Comments", "ContractValue", "DecrementAmount", "DecrementMonth", "DecrementReason", "SalesManager", "ATU", "OpName", "SalesStage", "DueDate"]
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -63,6 +59,6 @@ export class ViewDataComponent implements OnInit {
   }
 
   public openColumnDialog(){
-    this.columnDialogService.confirm(this.hiddenFields).subscribe(res => this.result = res);
+    this.columnDialogService.confirm(this.hiddenFields).subscribe();
   }
 }

@@ -125,7 +125,7 @@
 
                 <br>
 
-                <div id="forecastTimeSelection" *ngIf="forecastPrepared == false">
+                <!--<div id="forecastTimeSelection" *ngIf="forecastPrepared == false">
                     <div class="col-xs-5">
                         <label for="startdate" class="col-sm-4 control-label">Project Start Date</label>
                         <div class="col-sm-6 input-group date">
@@ -157,6 +157,19 @@
                         </tr>
                     </table>
                     <button type="button" class="btn btn-success" (click)="resetForecast()">Reset Forecast</button>
+                </div>-->
+
+                <div id="forecastGraphDiv" style="text-align:center">                                    
+                    <table align="center" id="forecastGraph">
+                        <tr id="forecastGraphHeaders">
+                            <th *ngFor="let cast of model.Forecasts">{{months[cast.Month-1]}}, {{cast.Year}}</th>
+                        </tr>
+                        <tr id="forecastGraphValues">
+                            <td *ngFor="let cast of model.Forecasts; let in = index">
+                                <input type="number" class="form-control" [(ngModel)]="cast.Value" name="value {{in}}">
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

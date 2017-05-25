@@ -15,9 +15,6 @@ export class EditDataDialog implements OnInit{
     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     likelihoods = ["Low", "Medium", "High"];
 
-    startDateString: string;
-    endDateString: string;
-    forecasts: Array<Forecast>;
     changeReason: string;
     alias: string;
     editMode = true;
@@ -34,11 +31,22 @@ export class EditDataDialog implements OnInit{
         // Create copy of the entity so that if you cancelled, 
         // there wouldn't be a mismatch between angular data and backend data
         this.model = JSON.parse(JSON.stringify(this.entities.find(x=>x.EntityId == this.id)));
-        if(this.model.Forecasts.length == 0){
-            this.forecastPrepared = false;
-        } else {
-            this.forecastPrepared = true;
+        console.log(this.model.Forecasts);
+        var startDate = new Date();
+        var numOfMonths = 5;
+        startDate.setDate(15); // 5/31/.... + 1 month is 7/01. Setting the date 15 prevents the jump and is valid because date doesn't matter.        
+        // Prepare Forecasts
+        for(var i = 0; i < numOfMonths; i++){
+            if(this.model.Forecasts.find(x => x.Month == startDate.getMonth()+1 && x.Year == startDate.getFullYear()) == null){
+                var cast = new Forecast();
+                cast.Month = startDate.getMonth() + 1; // Because months are zero indexed in Javascript
+                cast.Year = startDate.getFullYear();
+                cast.Value = 0;
+                this.model.Forecasts.push(cast);
+            }
+            startDate.setMonth(startDate.getMonth() + 1);
         }
+        console.log(this.model.Forecasts)
     }
 
     onSubmit(){

@@ -16,63 +16,36 @@ import { Router } from '@angular/router';
   templateUrl: './add-entry.component.html',
   styleUrls: ['./add-entry.component.css']
 })
-export class AddEntryComponent{
-  tiles = [
-    {text: 'One', cols: 2, rows: 2, color: 'lightblue'},
-    {text: 'Two', cols: 2, rows: 2, color: 'lightgreen'}
-  ];
-
+export class AddEntryComponent implements OnInit{
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   likelihoods = ["Low", "Medium", "High"];
-  startDateString: string;
-  endDateString: string;
-  forecasts = [];
-
-  // boolean used to determine which forecast divs to show
-  forecastPrepared = false;
-
   model = new Entity();
 
   constructor(private _dataService: DataService, public router: Router) {
   }
 
-  onSubmit(){
-    if (this.forecasts.length > 0){
-      this.model.Forecasts = this.forecasts;
-    }
-    this.resetForecast();
-    this._dataService.postService(this.model)
-    .subscribe(result => {
-      this.router.navigate(['view-data']);
-    });
-  }
-
-  createForecastTable(){
-    var startDate = new Date(this.startDateString);
-    startDate.setDate(startDate.getDate() + 1); // Offset new Date("") bug where may 1st turns into apr 30th
-    var endDate = new Date(this.endDateString);
-    endDate.setDate(endDate.getDate() + 1); // See above
-    var numOfMonths = this.calculateMonths(startDate, endDate);    
+  ngOnInit(){
+    var startDate = new Date();
+    var numOfMonths = 5;    
     startDate.setDate(15); // 5/31/.... + 1 month is 7/01. Setting the date 15 prevents the jump and is valid because date doesn't matter.
+    this.model.Forecasts = [];
     // Prepare Forecasts
     for(var i = 0; i < numOfMonths; i++){
       var cast = new Forecast();
       cast.Month = startDate.getMonth() + 1; // Because months are zero indexed in Javascript
       cast.Year = startDate.getFullYear();
       cast.Value = 0;
-      this.forecasts.push(cast);
+      this.model.Forecasts.push(cast);
       startDate.setMonth(startDate.getMonth() + 1);
     }
-
-    this.forecastPrepared = true;
   }
 
-  resetForecast(){
-    this.forecasts = [];
-    this.startDateString = null;
-    this.endDateString = null;
-    this.forecastPrepared = false;
+  onSubmit(){
+    this._dataService.postService(this.model)
+    .subscribe(result => {
+      this.router.navigate(['view-data']);
+    });
   }
 
   calculateMonths(start: Date, end: Date){
