@@ -51,4 +51,15 @@ export class ChangelogComponent implements OnInit{
         }
         return forecast.Value;
     }
+
+    getMonthWithOffset(x: number): number {
+        if((this.today.getMonth() + x) % 12 == 0){
+            return 12;
+        }
+        return (this.today.getMonth() + x) % 12;
+    }
+    
+    getYearWithMonthOffset(x: number): number {
+        return this.today.getFullYear() + Math.floor((this.today.getMonth() + x - 1)/ 12);
+    }
 }

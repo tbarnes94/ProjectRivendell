@@ -11,7 +11,7 @@
         </th>
       </ng-container>
       <th *ngFor="let number of [0, 1, 2, 3, 4, 5]" class="table-header-color">
-        <button md-button class="table-header-color text-centered">{{today.getMonth() + number | month}} {{today.getFullYear()}}</button>
+        <button md-button class="table-header-color text-centered">{{getMonthWithOffset(number) | month}}, {{getYearWithMonthOffset(number)}}</button>
       </th>
     </tr>
   </thead>
