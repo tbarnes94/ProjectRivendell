@@ -37,7 +37,7 @@ import { ChangelogComponent } from './changelog/changelog.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     BrowserAnimationsModule,
     routing,
     ReactiveFormsModule
